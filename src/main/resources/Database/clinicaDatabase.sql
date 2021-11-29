@@ -55,7 +55,7 @@ CREATE TABLE odontologo (
   idClinica int NOT NULL AUTO_INCREMENT,
   CONSTRAINT PK_odontologo
   PRIMARY KEY (cedulaOdontologo),
-  CONSTRAINT FK_empleado_clinica
+  CONSTRAINT FK_odontologo_clinica
   FOREIGN KEY (idClinica)
   REFERENCES clinica(idClinica)
 );
@@ -92,7 +92,7 @@ CREATE TABLE paciente (
   idPaciente int NOT NULL,
   nombre varchar(25) NOT NULL,
   apellido1 varchar(25) NOT NULL,
-  apellido1 varchar(25) NOT NULL,
+  apellido2 varchar(25) NOT NULL,
   fechaNacimiento date NOT NULL,
   edad int NOT NULL,
   sexo boolean NOT NULL DEFAULT false,
@@ -112,7 +112,7 @@ CREATE TABLE paciente (
 );
 
 CREATE TABLE tratamiento (
-  nombreTartamiento varchar(30) NOT NULL,
+  nombreTratamiento varchar(30) NOT NULL,
   costoTratamiento float NOT NULL,
   descripcionTratamiento tinytext NOT NULL,
   idPaciente int NOT NULL,
