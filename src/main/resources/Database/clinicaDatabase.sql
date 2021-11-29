@@ -23,7 +23,7 @@ CREATE TABLE clinica (
   telefono1 numeric(9,0) NOT NULL,
   email varchar(30) NOT NULL,
   CONSTRAINT PK_clinica
-  PRIMARY KEY (idClinica),
+  PRIMARY KEY (idClinica)
 );
 
 CREATE TABLE empleado (
@@ -131,7 +131,7 @@ CREATE TABLE datosMedicos (
   antecedentesQuirurgicos tinytext NOT NULL,
   alergia boolean NOT NULL,
   alergiaDetalle varchar(50) NOT NULL,
-  medicamentosConsumidos varcahar(200) NOT NULL,
+  medicamentosConsumidos varchar(200) NOT NULL,
   idPaciente int NOT NULL,
   CONSTRAINT PK_datosMedicos
   PRIMARY KEY (idDatosMedicos),
