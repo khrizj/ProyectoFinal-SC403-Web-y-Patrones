@@ -16,7 +16,7 @@
         <jakartaee>8.0</jakartaee>
     </properties>
     
- <dependencies>
+    <dependencies>
         <dependency>
             <groupId>net.glxn</groupId>
             <artifactId>qrgen</artifactId>
@@ -45,29 +45,29 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.21</version>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>8.0</version>
         </dependency>
     </dependencies>
-     <repositories>
-		<repository>
-			<id>jaspersoft-third-party</id>
-			<url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
-		</repository>
-		<repository>
-			<id>jr-ce-snapshots</id>
-			<name>JasperReports CE Snapshots</name>
-			<url>https://jaspersoft.jfrog.io/jaspersoft/jr-ce-snapshots</url>
-		</repository>
-		<repository>
-			<id>jr-ce-releases</id>
-			<name>JasperReports CE Releases</name>
-			<url>https://jaspersoft.jfrog.io/jaspersoft/jr-ce-releases</url>
-		</repository>
-	</repositories>
-     <build>
+    <repositories>
+        <repository>
+            <id>jaspersoft-third-party</id>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+        </repository>
+        <repository>
+            <id>jr-ce-snapshots</id>
+            <name>JasperReports CE Snapshots</name>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/jr-ce-snapshots</url>
+        </repository>
+        <repository>
+            <id>jr-ce-releases</id>
+            <name>JasperReports CE Releases</name>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/jr-ce-releases</url>
+        </repository>
+    </repositories>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
