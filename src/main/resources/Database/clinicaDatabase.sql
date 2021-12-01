@@ -114,7 +114,7 @@ CREATE TABLE paciente (
   CONSTRAINT PK_paciente
   PRIMARY KEY (idPaciente),
   CONSTRAINT FK_paciente_odontologo
-  FOREIGN KEY (cedulaOdontologo,cedulaEmpleado)
+  FOREIGN KEY (cedulaOdontologo)
   REFERENCES odontologo(cedulaOdontologo)
 );
 
