@@ -110,10 +110,11 @@ CREATE TABLE paciente (
   apellidoEncargado1 varchar(25) NOT NULL,
   apellidoEncargado2 varchar(25) NOT NULL,
   cedulaOdontologo numeric(9,0) NOT NULL,
+  cedulaEmpleado numeric(9,0) NOT NULL,
   CONSTRAINT PK_paciente
   PRIMARY KEY (idPaciente),
   CONSTRAINT FK_paciente_odontologo
-  FOREIGN KEY (cedulaOdontologo)
+  FOREIGN KEY (cedulaOdontologo,cedulaEmpleado)
   REFERENCES odontologo(cedulaOdontologo)
 );
 
