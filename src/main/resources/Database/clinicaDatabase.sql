@@ -13,29 +13,25 @@ flush privileges;
 
 USE clinicaOdontologica;
 
-/*
-* luego de crear el usuario y asignarlo no debiera de ejecutarse nuevamente
-*/
 CREATE TABLE clinica (
   idClinica int NOT NULL AUTO_INCREMENT,
   nombreClinica VARCHAR(15) NOT NULL,
-  direccion VARCHAR(40) NOT NULL,
-  telefono1 numeric(9,0) NOT NULL,
+  direccion VARCHAR(120) NOT NULL,
+  telefono1 VARCHAR(8) NOT NULL,
   email varchar(30) NOT NULL,
   CONSTRAINT PK_clinica
   PRIMARY KEY (idClinica)
 );
 
 CREATE TABLE empleado (
-  cedulaEmpleado numeric(9,0) NOT NULL,
+  cedulaEmpleado varchar(15) NOT NULL,
   nombre varchar(25) NOT NULL,
   apellido1 varchar(25) NOT NULL,
   apellido2 varchar(25) NOT NULL,
   username varchar(15) NOT NULL,
   pass varchar(25) NOT NULL,
   direccion VARCHAR(40) NOT NULL,
-  telefono1 numeric(9,0) NOT NULL,
-  telefono2 numeric(9,0) NOT NULL,
+  telefono1 VARCHAR(8) NOT NULL,
   email varchar(30) NOT NULL,
   idClinica int NOT NULL AUTO_INCREMENT,
   CONSTRAINT PK_empleado
@@ -52,9 +48,8 @@ CREATE TABLE odontologo (
   apellido2 varchar(25) NOT NULL,
   username varchar(15) NOT NULL,
   pass varchar(25) NOT NULL,
-  direccion VARCHAR(40) NOT NULL,
-  telefono1 numeric(9,0) NOT NULL,
-  telefono2 numeric(9,0) NOT NULL,
+  direccion VARCHAR(100) NOT NULL,
+  telefono1 VARCHAR(8) NOT NULL,
   email varchar(30) NOT NULL,
   idClinica int NOT NULL AUTO_INCREMENT,
   CONSTRAINT PK_odontologo
@@ -66,7 +61,7 @@ CREATE TABLE odontologo (
 
 CREATE TABLE especialidad (
   nombreEspecialidad varchar(25) NOT NULL,
-  cedulaOdontologo numeric(9,0) NOT NULL,
+  cedulaOdontologo VARCHAR(15) NOT NULL,
   CONSTRAINT PK_especialidad
   PRIMARY KEY (nombreEspecialidad),
   CONSTRAINT FK_especialidad_odontologo
@@ -75,15 +70,14 @@ CREATE TABLE especialidad (
 );
 
 CREATE TABLE administrador (
-  cedulaAdmin numeric(9,0) NOT NULL,
+  cedulaAdmin VARCHAR(15) NOT NULL,
   nombre varchar(25) NOT NULL,
   apellido1 varchar(25) NOT NULL,
   apellido2 varchar(25) NOT NULL,
   username varchar(15) NOT NULL,
   pass varchar(25) NOT NULL,
   direccion VARCHAR(40) NOT NULL,
-  telefono1 numeric(9,0) NOT NULL,
-  telefono2 numeric(9,0) NOT NULL,
+  telefono1 VARCHAR(8) NOT NULL,
   email varchar(30) NOT NULL,
   idClinica int NOT NULL AUTO_INCREMENT,
   CONSTRAINT PK_administrador
@@ -95,24 +89,25 @@ CREATE TABLE administrador (
 
 CREATE TABLE paciente (
   nacional boolean NOT NULL DEFAULT true,
-  idPaciente int NOT NULL,
+  cedulaPaciente VARCHAR(8) NOT NULL,
   nombre varchar(25) NOT NULL,
   apellido1 varchar(25) NOT NULL,
   apellido2 varchar(25) NOT NULL,
+  username varchar(15) NOT NULL,
+  pass varchar(25) NOT NULL,
   fechaNacimiento date NOT NULL,
   edad int NOT NULL,
   sexo boolean NOT NULL DEFAULT false,
   direccion VARCHAR(40) NOT NULL,
   telefono1 numeric(9,0) NOT NULL,
-  telefono2 numeric(9,0) NOT NULL,
   email varchar(30) NOT NULL,
   nombreEncargado varchar(25) NOT NULL,
   apellidoEncargado1 varchar(25) NOT NULL,
   apellidoEncargado2 varchar(25) NOT NULL,
+  activo boolean NOT NULL default true,
   cedulaOdontologo numeric(9,0) NOT NULL,
-  cedulaEmpleado numeric(9,0) NOT NULL,
   CONSTRAINT PK_paciente
-  PRIMARY KEY (idPaciente),
+  PRIMARY KEY (cedulaPaciente),
   CONSTRAINT FK_paciente_odontologo
   FOREIGN KEY (cedulaOdontologo)
   REFERENCES odontologo(cedulaOdontologo)
@@ -122,12 +117,12 @@ CREATE TABLE tratamiento (
   nombreTratamiento varchar(30) NOT NULL,
   costoTratamiento float NOT NULL,
   descripcionTratamiento tinytext NOT NULL,
-  idPaciente int NOT NULL,
+  cedulaPaciente VARCHAR(8) NOT NULL,
   CONSTRAINT PK_tratamiento
   PRIMARY KEY (nombreTratamiento),
   CONSTRAINT FK_tratamiento_paciente
-  FOREIGN KEY (idPaciente)
-  REFERENCES paciente(idPaciente)
+  FOREIGN KEY (cedulaPaciente)
+  REFERENCES paciente(cedulaPaciente)
 );
 
 
@@ -139,12 +134,12 @@ CREATE TABLE datosMedicos (
   alergia boolean NOT NULL,
   alergiaDetalle varchar(50) NOT NULL,
   medicamentosConsumidos varchar(200) NOT NULL,
-  idPaciente int NOT NULL,
+  cedulaPaciente VARCHAR(8) NOT NULL,
   CONSTRAINT PK_datosMedicos
   PRIMARY KEY (idDatosMedicos),
   CONSTRAINT FK_datosMedicos_paciente
-  FOREIGN KEY (idPaciente)
-  REFERENCES paciente(idPaciente)
+  FOREIGN KEY (cedulaPaciente)
+  REFERENCES paciente(cedulaPaciente)
 );
 
 CREATE TABLE historiaDental (
@@ -161,12 +156,12 @@ CREATE TABLE historiaDental (
   masAgua boolean NOT NULL,
   igualAgua boolean NOT NULL,
   menosAgua boolean NOT NULL,
-  idPaciente int NOT NULL,
+  cedulaPaciente VARCHAR(8) NOT NULL,
   CONSTRAINT PK_historiaDental
   PRIMARY KEY (idHistoriaDental),
   CONSTRAINT FK_historiaDental_paciente
-  FOREIGN KEY (idPaciente)
-  REFERENCES paciente(idPaciente)
+  FOREIGN KEY (cedulaPaciente)
+  REFERENCES paciente(cedulaPaciente)
 );
 
 CREATE TABLE habitosParafuncionales (
@@ -178,12 +173,12 @@ CREATE TABLE habitosParafuncionales (
   chuparDedo boolean NOT NULL,
   deglusionAtipica boolean NOT NULL,
   morderObjetos boolean NOT NULL,
-  idPaciente int NOT NULL,
+  cedulaPaciente VARCHAR(8) NOT NULL,
   CONSTRAINT PK_habitosParafuncionales
   PRIMARY KEY (idhabitosParafuncionales),
   CONSTRAINT FK_habitosParafuncionales_paciente
-  FOREIGN KEY (idPaciente)
-  REFERENCES paciente(idPaciente)
+  FOREIGN KEY (cedulaPaciente)
+  REFERENCES paciente(cedulaPaciente)
 );
 
 CREATE TABLE evolucion (
@@ -192,10 +187,31 @@ CREATE TABLE evolucion (
   presenciaDolor boolean NOT NULL,
   descripcion varchar (150) NOT NULL,
   satisfechoConDentadura boolean NOT NULL,
-  idPaciente int NOT NULL,
+  cedulaPaciente VARCHAR(8) NOT NULL,
   CONSTRAINT PK_evolucion
   PRIMARY KEY (idEvolucion),
   CONSTRAINT FK_evolucion_paciente
-  FOREIGN KEY (idPaciente)
-  REFERENCES paciente(idPaciente)
+  FOREIGN KEY (cedulaPaciente)
+  REFERENCES paciente(cedulaPaciente)
 );
+
+CREATE TABLE cita (
+  idCita int unsigned NOT NULL AUTO_INCREMENT,
+  motivoCita varchar(50) NOT NULL,
+  fechaCita date NOT NULL,
+  cedulaPaciente VARCHAR(8) NOT NULL,
+  CONSTRAINT PK_citas
+  PRIMARY KEY (idCita),
+  CONSTRAINT FK_cita_paciente
+  FOREIGN KEY (cedulaPaciente)
+  REFERENCES paciente(cedulaPaciente)
+);
+
+insert into clinica (nombreClinica,direccion,telefono1,email) values ('Dental Pro','Edificio san pedro Business center, 100 mts este de la rotonda de la fuente de la hispanidad San Pedro, San José','84163513','dentalprocr@gmail.com');
+
+insert into odontologo (cedulaOdontologo,nombre,apellido1,apellido2,username,pass,direccion,telefono1,email,idClinica) values ('701620535','Carolina','Vargas','Loría','carovar','caro123','San Jose Tibas','84723238','periodoncia.cvl@gmail.com'),
+('112440390','Andres','Gonzalez','Madriz','andresgon','andres123','San Jose Tibas','89962425','drandresgonzalezmadriz@gmail.com'),
+('112380352','Andres','Brenes','Carmona','andresbre','brenes123','San Jose San Francisco de Dos Rios','70941618','drbrenescarmona_prostodoncia@gmail.com'),
+('112580307','Melissa','Rojas','Zuñiga','meliroj','melisa123','San Jose Sabanilla Montes de Oca','83411162','odontopediatriacr@gmail.com'),
+('112500520','Tony','Sanchez','Achio','tonysan','tony123','San Jose San Pedro Montes de Oca','22368090','dr_tsanchez@hotmail.com'),
+('112050234','Silvia','Aragon','Matamoros','silvara','silvia123','San Jose Guayabos Curridabat','60208504','aragonsilvia8403@gmail.com');
