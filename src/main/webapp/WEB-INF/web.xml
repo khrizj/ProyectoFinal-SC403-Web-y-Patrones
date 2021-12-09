@@ -3,8 +3,22 @@
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
-        <param-name>primefaces.THEME</param-name>
-        <param-value>admin</param-value>
+    </context-param>
+    <context-param>
+        <param-name>BootsFaces_THEME</param-name>
+        <param-value>#{temaController.tema}</param-value>
+    </context-param>
+    <context-param>
+        <param-name>BootsFaces_USETHEME</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
+        <param-value>6LcGhwsdAAAAADNT7cmsI7Gvu0MTvJTnhDl6UA23</param-value>
+    </context-param>
+     <context-param>
+        <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
+        <param-value>6LcGhwsdAAAAABq1nLAR8c7-Pn3WXpv7rH-b6iif</param-value>
     </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>

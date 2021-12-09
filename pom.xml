@@ -15,7 +15,6 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <jakartaee>8.0</jakartaee>
     </properties>
-    
     <dependencies>
         <dependency>
             <groupId>net.glxn</groupId>
