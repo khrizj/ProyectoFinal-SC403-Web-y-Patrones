@@ -1,11 +1,14 @@
 package controlador;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.SessionScoped;
 
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,7 +34,7 @@ public class ReporteControlador implements Serializable{
     public ReporteControlador() {
     }
 
-    public void createReport(String reportName, int action){
+    public void createReport(String reportName, int action) throws IOException{
         //El método permite crear el reporte en PDF para descarga o vista dependiendo de cómo se ocupe
         //Para vista action = 0, para descargar action = 1
         try {
