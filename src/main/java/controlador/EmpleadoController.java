@@ -6,7 +6,6 @@
 package controlador;
 
 import gestion.EmpleadoGestion;
-import gestion.OdontologoGestion;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
