@@ -18,10 +18,14 @@ public class Empleado {
     String username;
     String passw;
     String direccion;
-    int telefono;
+    int telefono1;
     String email;
 
-    public Empleado(int cedulaEmpleado, String nombre, String apellido1, String apellido2, String username, String passw, String direccion, int telefono, String email) {
+    public Empleado() {
+    }
+
+    
+    public Empleado(int cedulaEmpleado, String nombre, String apellido1, String apellido2, String username, String passw, String direccion, int telefono1, String email) {
         this.cedulaEmpleado = cedulaEmpleado;
         this.nombre = nombre;
         this.apellido1 = apellido1;
@@ -29,7 +33,7 @@ public class Empleado {
         this.username = username;
         this.passw = passw;
         this.direccion = direccion;
-        this.telefono = telefono;
+        this.telefono1 = telefono1;
         this.email = email;
     }
 
@@ -89,12 +93,12 @@ public class Empleado {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
-        return telefono;
+    public int getTelefono1() {
+        return telefono1;
     }
 
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
+    public void setTelefono1(int telefono1) {
+        this.telefono1 = telefono1;
     }
 
     public String getEmail() {

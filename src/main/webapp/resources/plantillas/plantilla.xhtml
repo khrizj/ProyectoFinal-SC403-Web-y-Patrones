@@ -19,13 +19,13 @@
         <div id="center_content" class="center_content">
             <ui:insert name="top">
                 <b:breadcrumbs>
-                    <b:navBar brand="DentalPro" brandHref="/index.html" inverse="true" fixed="top" fluid="true">
+                    <b:navBar brand="DentalPro" brandHref="/" inverse="true" fixed="top" fluid="true">
                         <b:navbarLinks pull="left">
                         <b:image library="images" name="DentalPro.png" height="60px"/>
                         </b:navbarLinks>
                         <b:navbarLinks pull="left">
                             <b:navLink value="Odontologos" href="#{request.contextPath}/listar-odontologos.xhtml"></b:navLink>
-                            <b:navLink value="Empleado" href="#"></b:navLink>
+                            <b:navLink value="Empleado" href="#{request.contextPath}/listar-empleados.xhtml"></b:navLink>
                             <b:dropMenu value="Pacientes">
                                 <b:navLink value="Pacientes" href="pacientes.xhtml"></b:navLink>
                                 <b:navLink value="Historial Medico" href="#"></b:navLink>
