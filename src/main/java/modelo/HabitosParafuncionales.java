@@ -27,6 +27,20 @@ public class HabitosParafuncionales {
         this.cedulaPaciente = cedulaPaciente;
     }
 
+    public HabitosParafuncionales(int idhabitosParafuncionales, boolean comeUnnas, boolean bruxismo, boolean ronca, boolean dormirBocaAbierta, boolean chuparDedo, boolean deglusionAtipica, boolean morderObjetos, String cedulaPaciente) {
+        this.idhabitosParafuncionales = idhabitosParafuncionales;
+        this.comeUnnas = comeUnnas;
+        this.bruxismo = bruxismo;
+        this.ronca = ronca;
+        this.dormirBocaAbierta = dormirBocaAbierta;
+        this.chuparDedo = chuparDedo;
+        this.deglusionAtipica = deglusionAtipica;
+        this.morderObjetos = morderObjetos;
+        this.cedulaPaciente = cedulaPaciente;
+    }
+    
+    
+
     public int getIdhabitosParafuncionales() {
         return idhabitosParafuncionales;
     }

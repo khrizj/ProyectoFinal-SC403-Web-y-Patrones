@@ -21,6 +21,17 @@ public class Evolucion {
         this.cedulaPaciente = cedulaPaciente;
     }
 
+    public Evolucion(int idEvolucion, String motivoConsulta, boolean presenciaDolor, String descripcion, boolean satisfechoConDentadura, String cedulaPaciente) {
+        this.idEvolucion = idEvolucion;
+        this.motivoConsulta = motivoConsulta;
+        this.presenciaDolor = presenciaDolor;
+        this.descripcion = descripcion;
+        this.satisfechoConDentadura = satisfechoConDentadura;
+        this.cedulaPaciente = cedulaPaciente;
+    }
+    
+    
+
     public int getIdEvolucion() {
         return idEvolucion;
     }
@@ -68,7 +79,5 @@ public class Evolucion {
     public void setCedulaPaciente(String cedulaPaciente) {
         this.cedulaPaciente = cedulaPaciente;
     }
-  
-  
   
 }
