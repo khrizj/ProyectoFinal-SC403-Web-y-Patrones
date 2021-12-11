@@ -21,9 +21,10 @@
                 <b:breadcrumbs>
                     <b:navBar brand="DentalPro" brandHref="/" inverse="true" fixed="top" fluid="true">
                         <b:navbarLinks pull="left">
-                        <b:image library="images" name="DentalPro.png" height="60px"/>
+                            <b:image library="images" name="DentalPro.png" height="60px"/>
                         </b:navbarLinks>
                         <b:navbarLinks pull="left">
+
                             <b:navLink value="Odontologos" href="#{request.contextPath}/listar-odontologos.xhtml"></b:navLink>
                             <b:navLink value="Empleado" href="#{request.contextPath}/listar-empleados.xhtml"></b:navLink>
                             <b:dropMenu value="Pacientes">
@@ -35,6 +36,24 @@
                                 <b:navLink value="Separated link" href="#"></b:navLink>
                                 <b:navLink value="One more separated link" href="#"></b:navLink>
                             </b:dropMenu>
+=======
+                            <b:navLink value="Especialidades" href="#{request.contextPath}/especialidades.xhtml"></b:navLink>
+                            <b:navLink value="Contactenos" href="contacto.xhtml"></b:navLink>
+                        </b:navbarLinks>
+                        <b:navbarLinks pull="right">
+                            <b:navLink value="Registrate" href="#{request.contextPath}/registro.xhtml"></b:navLink>
+                            <h:form styleClass="navbar-form  navbar-right">
+                                <div class="form-group">
+                                    <b:inputText placeholder="Email" fieldSize="sm"/>
+                                    <!--input type="text" class="form-control" placeholder="Search"/-->
+                                </div>
+                                <div class="form-group">
+                                    <b:inputText placeholder="Password" fieldSize="sm"/>
+                                </div> 
+                                #{' '}
+                               
+                            </h:form>
+>>>
                         </b:navbarLinks>
                     </b:navBar>
                 </b:breadcrumbs>
