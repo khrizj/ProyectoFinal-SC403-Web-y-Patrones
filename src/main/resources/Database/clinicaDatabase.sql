@@ -1,6 +1,3 @@
-/**
-*  Las dos siguientes instrucciones sólo se ejecutan una vez
-*/
 SET GLOBAL time_zone = '-6:00';
 
 DROP SCHEMA IF EXISTS clinicaOdontologica;
@@ -50,7 +47,7 @@ CREATE TABLE odontologo (
   pass varchar(25) NOT NULL,
   direccion VARCHAR(100) NOT NULL,
   telefono1 VARCHAR(8) NOT NULL,
-  email varchar(30) NOT NULL,
+  email varchar(50) NOT NULL,
   idClinica int NOT NULL AUTO_INCREMENT,
   CONSTRAINT PK_odontologo
   PRIMARY KEY (cedulaOdontologo),
@@ -61,7 +58,7 @@ CREATE TABLE odontologo (
 
 CREATE TABLE especialidad (
   nombreEspecialidad varchar(25) NOT NULL,
-  cedulaOdontologo VARCHAR(15) NOT NULL,
+  cedulaOdontologo numeric(9,0) NOT NULL,
   CONSTRAINT PK_especialidad
   PRIMARY KEY (nombreEspecialidad),
   CONSTRAINT FK_especialidad_odontologo
@@ -89,7 +86,7 @@ CREATE TABLE administrador (
 
 CREATE TABLE paciente (
   nacional boolean NOT NULL DEFAULT true,
-  cedulaPaciente VARCHAR(8) NOT NULL,
+  cedulaPaciente VARCHAR(9) NOT NULL,
   nombre varchar(25) NOT NULL,
   apellido1 varchar(25) NOT NULL,
   apellido2 varchar(25) NOT NULL,
@@ -97,7 +94,7 @@ CREATE TABLE paciente (
   pass varchar(25) NOT NULL,
   fechaNacimiento date NOT NULL,
   edad int NOT NULL,
-  sexo boolean NOT NULL DEFAULT false,
+  sexo char(1) NOT NULL,
   direccion VARCHAR(40) NOT NULL,
   telefono1 numeric(9,0) NOT NULL,
   email varchar(30) NOT NULL,
@@ -215,4 +212,3 @@ insert into odontologo (cedulaOdontologo,nombre,apellido1,apellido2,username,pas
 ('112580307','Melissa','Rojas','Zuñiga','meliroj','melisa123','San Jose Sabanilla Montes de Oca','83411162','odontopediatriacr@gmail.com',1),
 ('112500520','Tony','Sanchez','Achio','tonysan','tony123','San Jose San Pedro Montes de Oca','22368090','dr_tsanchez@hotmail.com',1),
 ('112050234','Silvia','Aragon','Matamoros','silvara','silvia123','San Jose Guayabos Curridabat','60208504','aragonsilvia8403@gmail.com',1);
-
