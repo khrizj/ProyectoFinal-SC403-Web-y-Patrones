@@ -123,7 +123,15 @@
                 </b:container>
 
                 <footer>
-                    <p>© Fidelitas Web y Patrones 2021</p>
+                    <b:container fluid="true">
+                        <b:column medium-screen="6">
+                            <p>© Fidelitas Web y Patrones 2021</p>
+                        </b:column>
+                        <b:column medium-screen="5"/>
+                        <b:column medium-screen="1">
+                            <b:button href="/login.xhtml" value="Odontologos" look="info" size="sm" icon="fa-user"/>
+                        </b:column>
+                    </b:container>
                 </footer>
 
             </ui:define>

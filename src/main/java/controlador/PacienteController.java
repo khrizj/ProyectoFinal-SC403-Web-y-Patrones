@@ -30,7 +30,7 @@ public class PacienteController extends Paciente implements Serializable {
             this.setNombre(paciente.getNombre());
             this.setApellido1(paciente.getApellido1());
             this.setApellido2(paciente.getApellido2());
-            return "pacientes.xhtml";
+            return "/Pacientes/pacientes.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Usuario o "
                     + "contraseña inválidas");
