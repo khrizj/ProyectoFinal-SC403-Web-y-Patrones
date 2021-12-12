@@ -209,9 +209,10 @@ CREATE TABLE cita (
 
 insert into clinica (nombreClinica,direccion,telefono1,email) values ('Dental Pro','Edificio san pedro Business center, 100 mts este de la rotonda de la fuente de la hispanidad San Pedro, San José','84163513','dentalprocr@gmail.com');
 
-insert into odontologo (cedulaOdontologo,nombre,apellido1,apellido2,username,pass,direccion,telefono1,email,idClinica) values ('701620535','Carolina','Vargas','Loría','carovar','caro123','San Jose Tibas','84723238','periodoncia.cvl@gmail.com'),
-('112440390','Andres','Gonzalez','Madriz','andresgon','andres123','San Jose Tibas','89962425','drandresgonzalezmadriz@gmail.com'),
-('112380352','Andres','Brenes','Carmona','andresbre','brenes123','San Jose San Francisco de Dos Rios','70941618','drbrenescarmona_prostodoncia@gmail.com'),
-('112580307','Melissa','Rojas','Zuñiga','meliroj','melisa123','San Jose Sabanilla Montes de Oca','83411162','odontopediatriacr@gmail.com'),
-('112500520','Tony','Sanchez','Achio','tonysan','tony123','San Jose San Pedro Montes de Oca','22368090','dr_tsanchez@hotmail.com'),
-('112050234','Silvia','Aragon','Matamoros','silvara','silvia123','San Jose Guayabos Curridabat','60208504','aragonsilvia8403@gmail.com');
+insert into odontologo (cedulaOdontologo,nombre,apellido1,apellido2,username,pass,direccion,telefono1,email,idClinica) values ('701620535','Carolina','Vargas','Loría','carovar','caro123','San Jose Tibas','84723238','periodoncia.cvl@gmail.com',1),
+('112440390','Andres','Gonzalez','Madriz','andresgon','andres123','San Jose Tibas','89962425','drandresgonzalezmadriz@gmail.com',1),
+('112380352','Andres','Brenes','Carmona','andresbre','brenes123','San Jose San Francisco de Dos Rios','70941618','drbrenescarmona_prostodoncia@gmail.com',1),
+('112580307','Melissa','Rojas','Zuñiga','meliroj','melisa123','San Jose Sabanilla Montes de Oca','83411162','odontopediatriacr@gmail.com',1),
+('112500520','Tony','Sanchez','Achio','tonysan','tony123','San Jose San Pedro Montes de Oca','22368090','dr_tsanchez@hotmail.com',1),
+('112050234','Silvia','Aragon','Matamoros','silvara','silvia123','San Jose Guayabos Curridabat','60208504','aragonsilvia8403@gmail.com',1);
+

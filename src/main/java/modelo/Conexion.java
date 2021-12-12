@@ -15,7 +15,7 @@ public class Conexion {
 
     private static Conexion conexion;
 
-    private static final String DBURL = "jdbc:mysql://localhost:3306/clinicaOdontologica?zeroDateTimeBehavior=CONVERT_TO_NULL";
+    private static final String DBURL = "jdbc:mysql://localhost:3307/clinicaOdontologica?zeroDateTimeBehavior=CONVERT_TO_NULL";
     private static Connection conn = null;
 
     private Conexion() {
