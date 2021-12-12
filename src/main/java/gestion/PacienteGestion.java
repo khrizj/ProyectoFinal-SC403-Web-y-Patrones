@@ -39,8 +39,8 @@ public class PacienteGestion {
 
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(PACIENTE_SQL_VALIDA);
-            sqlQuery.setString(6, username);
-            sqlQuery.setString(7, pass);
+            sqlQuery.setString(1, username);
+            sqlQuery.setString(2, pass);
             ResultSet rs = sqlQuery.executeQuery();
 
             if (rs.next()) {
