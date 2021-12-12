@@ -50,11 +50,12 @@ public class Paciente {
         this.cedulaOdontologo = cedulaOdontologo;
     }
 
-    public Paciente(String cedulaPaciente, String nombre, String apellido1, String apellido2) {
-        this.cedulaPaciente = cedulaPaciente;
+    public Paciente(String nombre, String apellido1, String apellido2,String cedulaPaciente) {
+
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
+        this.cedulaPaciente = cedulaPaciente;
     }
 
  
