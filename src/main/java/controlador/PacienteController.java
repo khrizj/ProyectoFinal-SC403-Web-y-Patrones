@@ -41,12 +41,12 @@ public class PacienteController extends Paciente implements Serializable {
             public String pacienteInserta (){
         
         if (PacienteGestion.pacienteInsert(this)){
-            return "list.xhtml";
+            return "/Pacientes/nuevoIngreso.xhtml";
         }else{
             FacesMessage mensaje= new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error","Posible Identificación Duplicada");
             FacesContext.getCurrentInstance().addMessage("editaEstudianteForm:identificacion", mensaje);
-            return "/Pacientes/NuevoIngreso.xhtml";
+            return "/Pacientes/nuevoIngreso.xhtml";
         }
     }
     
