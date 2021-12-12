@@ -28,8 +28,8 @@ import net.sf.jasperreports.engine.JasperPrint;
 @SessionScoped
 public class ReporteControlador implements Serializable{
     //Este bean controla la descarga de los reportes de Jasper de un solo lugar
-    private final static String PACIENTEREPORTPATH = "";
-    private final static String ODONTOREPORTPATH = "";
+    private final static String PACIENTEREPORTPATH = "/Pacientes/Reporte_Citas_Paciente.jasper";
+    private final static String ODONTOREPORTPATH = "/Doctores/Reporte_Cita.jasper";
 
     //Constructor
     public ReporteControlador() {
