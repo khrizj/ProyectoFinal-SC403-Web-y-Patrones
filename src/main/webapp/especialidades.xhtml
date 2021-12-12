@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Index</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./resources/plantillas/plantilla.xhtml">
+            <ui:define name="content">
+                <b:container class="center_content">
+                <b:image id="InicioEsp" library="images" name="EspecialistasDP.png" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                         onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                         onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                         style="width:90%"
+                         />
+                <b:progressBar value="90" look="info" content-class="imageProgressBar"/>
+                
+                <b:image id="odontop" library="images" name="odontopediatriaDP.png" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                         onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                         onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                         style="width:90%"
+                         />
+                <b:progressBar value="90" look="info" content-class="imageProgressBar"/>
+
+                <b:image id="orto" library="images" name="OrtododonciaDP.png" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                         onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                         onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                         style="width:90%"
+                         />
+                <b:progressBar value="90" look="info" content-class="imageProgressBar"/>
+                <b:image id="prosto" library="images" name="ProstodonciaDP.png" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                         onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                         onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                         style="width:90%"
+                         />
+                <b:progressBar value="90" look="info" content-class="imageProgressBar"/>
+                <b:image id="endo" library="images" name="EndodonciaDP.png" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                         onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                         onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                         style="width:90%"
+                         />
+                <b:progressBar value="90" look="info" content-class="imageProgressBar"/>                
+                <b:image id="perio" library="images" name="PeriodonciaDP.png" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                         onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                         onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                         style="width:90%"
+                         />
+                <b:progressBar value="90" look="info" content-class="imageProgressBar"/>
+                                <b:image id="maxilo" library="images" name="MaxilofacialDP.png" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                         onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                         onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                         style="width:90%"
+                         />
+                <b:progressBar value="90" look="info" content-class="imageProgressBar"/>
+</b:container>
+
+
+
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

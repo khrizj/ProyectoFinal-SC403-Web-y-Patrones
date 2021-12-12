@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./resources/plantillas/plantilla.xhtml">
+
+            <ui:define name="content">
+
+                <b:container class="center_content">
+                    <b:image library="images" name="SEDE.jpg" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                             onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                             onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                             style="width:90%"
+                             />
+                    <b:progressBar value="90" look="info" content-class="imageProgressBar"/>
+
+                    <b:image library="images" name="contacto.png" onloadstart="console.log('start loading ' + img.completedPercentage + '%');"
+                             onloadend="console.log('finished loading ' + img.completedPercentage + '%');;$('.imageProgressBar').parent().hide();"
+                             onprogress="console.log('continue loading ' + img.completedPercentage + '%');$('.imageProgressBar')[0].setAttribute('style', 'width:' + img.completedPercentage + '%');$('.imageProgressBar')[0].innerText= img.completedPercentage + '%';"
+                             style="width:90%"
+                             />
+                    <b:progressBar value="90" look="info" content-class="imageProgressBar"/>
+                </b:container>
+                <b:container class="center_content">
+                    <div class="social-icons">
+
+                        <a href="#" class="social-icon social-icon--instagram">
+                            <b:iconAwesome value="fa-instagram" style="color: #ffffff"/>
+                            <div class="tooltip" style="color: #ffffff">Follow us</div>
+                        </a>
+
+                        <a href="https://www.facebook.com/ClinicaDentalProCR" class="social-icon social-icon--facebook">
+                            <b:iconAwesome value="fa-facebook" style="color: #ffffff"/>
+                            <div class="tooltip" style="color: #ffffff">Like us</div>
+                        </a>
+                    </div>
+                </b:container>
+
+                <footer>
+                    <p>© Fidelitas Web y Patrones 2021</p>
+                </footer>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
