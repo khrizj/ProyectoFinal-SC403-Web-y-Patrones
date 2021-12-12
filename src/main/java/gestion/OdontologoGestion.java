@@ -30,6 +30,29 @@ public class OdontologoGestion {
             + "apellido1=?,apellido2=?,username=?,pass=?, "
             + "direccion=?,telefono1=?,email=? WHERE cedulaOdontologo=?";
     private static final String SQL_DELETE = "DELETE FROM odontologo WHERE cedulaOdontologo = ?";
+    private static final String ODONTO_SQL_VALIDA = "SELECT nombre,apellido1,apellido2,cedulaOdontologo FROM odontologo WHERE username=? and pass = ?";
+
+    //Executions
+    //SQL_SELECT exec
+    public static final Odontologo odontoValida(String username, String pass) {
+
+        Odontologo odontologo = null;
+
+        try {
+            PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(ODONTO_SQL_VALIDA);
+            sqlQuery.setString(1, username);
+            sqlQuery.setString(2, pass);
+            ResultSet rs = sqlQuery.executeQuery();
+
+            if (rs.next()) {
+
+                odontologo = new Odontologo(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PacienteGestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return odontologo;
+    }
 
     public static Odontologo getOdontologo(String cedulaOdontologo) {
 
@@ -122,8 +145,8 @@ public class OdontologoGestion {
             sentencia.setInt(7, odontologo.getTelefono1());
             sentencia.setString(8, odontologo.getEmail());
             sentencia.setInt(9, odontologo.getCedulaOdontologo());
-            
-            return sentencia.executeUpdate()>0;
+
+            return sentencia.executeUpdate() > 0;
 
         } catch (SQLException e) {
             Logger.getLogger(PacienteGestion.class.getName()).log(Level.SEVERE, null, e);

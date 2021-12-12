@@ -35,6 +35,13 @@ public class Odontologo {
         this.telefono1 = telefono1;
         this.email = email;
     }
+    
+        public Odontologo(String nombre, String apellido1, String apellido2, int cedulaOdontologo) {
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.cedulaOdontologo = cedulaOdontologo;
+    }
 
     public int getCedulaOdontologo() {
         return cedulaOdontologo;
