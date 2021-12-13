@@ -16,7 +16,7 @@
         <param-name>primefaces.PUBLIC_CAPTCHA_KEY</param-name>
         <param-value>6LcGhwsdAAAAADNT7cmsI7Gvu0MTvJTnhDl6UA23</param-value>
     </context-param>
-     <context-param>
+    <context-param>
         <param-name>primefaces.PRIVATE_CAPTCHA_KEY</param-name>
         <param-value>6LcGhwsdAAAAABq1nLAR8c7-Pn3WXpv7rH-b6iif</param-value>
     </context-param>
@@ -37,4 +37,8 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    <mime-mapping>
+        <extension>xhtml</extension>
+        <mime-type>application/xml</mime-type>
+    </mime-mapping>
 </web-app>
