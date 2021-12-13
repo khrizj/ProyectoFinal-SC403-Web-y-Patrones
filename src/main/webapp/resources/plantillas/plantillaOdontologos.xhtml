@@ -17,13 +17,15 @@
 
         <div id="top" class="top">
             <ui:insert name="top">
-                
-                                <b:breadcrumbs>
+
+                <b:breadcrumbs>
                     <b:navBar brand="DentalPro" brandHref="/index.xhtml" inverse="true" fixed="top" fluid="true">
                         <b:navbarLinks pull="left">
-                            <b:image library="images" name="DentalPro.png" height="60px"/>
-                            <b:navLink value="Formulario de Datos Médicos" href="/Doctores/DatosMedicos.xhtml"></b:navLink>
-                            <b:navLink value="Formulario de Evolución" href="/Doctores/Evolucion.xhtml"></b:navLink>
+                            <b:image library="images" name="DentalPro.png" height="55px"/>
+                        </b:navbarLinks>
+                        <b:navbarLinks>
+                        <b:navLink value="Formulario de Datos Médicos" href="/Doctores/DatosMedicos.xhtml"></b:navLink>
+                        <b:navLink value="Formulario de Evolución" href="/Doctores/Evolucion.xhtml"></b:navLink>
                         </b:navbarLinks>
                         <b:navbarLinks pull="left">
                             <b:dropMenu value="Reportes">
@@ -35,7 +37,7 @@
                         </b:navbarLinks>
                     </b:navBar>
                 </b:breadcrumbs>
-                
+
             </ui:insert>
         </div>
 
