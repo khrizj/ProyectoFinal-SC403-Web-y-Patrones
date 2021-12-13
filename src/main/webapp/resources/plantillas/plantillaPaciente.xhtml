@@ -8,8 +8,8 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./../css/default.css"/>
-        <h:outputStylesheet name="./../css/cssLayout.css"/>
+        <h:outputStylesheet name="../resources/css/default.css"/>
+        <h:outputStylesheet name="../resources/css/cssLayout.css"/>
         <title>Pacientes Plantilla</title>
     </h:head>
 
@@ -34,8 +34,8 @@
             </ui:insert>
         </div>
 
-        <div id="content" class="center_content">
-            <ui:insert name="content">Content</ui:insert>
+        <div id="content" class="center_content" fluid="true">
+            <ui:insert name="content"></ui:insert>
         </div>
 
     </h:body>

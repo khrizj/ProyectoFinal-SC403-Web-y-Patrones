@@ -15,6 +15,10 @@ public class Cita {
   private Date fechaCita;
   private String cedulaPaciente;
 
+    public Cita() {
+    }
+
+  
     public Cita(String motivoCita, Date fechaCita, String cedulaPaciente) {
         this.motivoCita = motivoCita;
         this.fechaCita = fechaCita;

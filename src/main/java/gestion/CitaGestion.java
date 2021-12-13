@@ -17,7 +17,7 @@ public class CitaGestion {
         //CRUD elements
     private static final String CITA_SQL_SELECT = "SELECT * FROM Cita WHERE idCita = ?";
     private static final String CITA_SQL_SELECT_ALL = "SELECT * FROM Cita";
-    private static final String CITA_SQL_INSERT = "INSERT INTO Cita () VALUES (?, ? ,?)";
+    private static final String CITA_SQL_INSERT = "INSERT INTO Cita (motivoCita, fechaCita, cedulaPaciente) VALUES (?, ? ,?)";
     private static final String CITA_SQL_UPDATE = "UPDATE Cita SET nombre = ?, motivoCita = ?,"+
                                              "fechaCita = ?, cedulaPaciente = ?";
     private static final String CITA_SQL_DELETE = "DELETE FROM Cita WHERE idCita = ?";

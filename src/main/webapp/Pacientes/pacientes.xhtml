@@ -1,23 +1,84 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
-    <body>
-
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <title>Dental Pro</title>
+    </h:head>
+    <h:body>
         <ui:composition template="./../resources/plantillas/plantillaPaciente.xhtml">
-
             <ui:define name="content">
-                
-                
-                
-                content
-                
-                
-                
+                <h:form id="insertaCita">
+                    <b:panel style="margin-top: 3%" title="Insertar cita" look="primary">
+
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Cédula del paciente" for="id"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText id="id"
+                                             required="true"
+                                             value="#{citaController.cedulaPaciente}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="id"/>
+                            </b:column>  
+                        </b:row>
+
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Motivo de cita" for="motivo"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText id="motivo"
+                                             required="true"
+                                             value="#{citaController.motivoCita}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="motivo"/>
+                            </b:column>  
+                        </b:row>
+
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Fecha de cita" for="fecha"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:dateTimePicker format="YYYY-MM-DD HH:mm:ss" id="fecha"
+                                                  required="true"
+                                                  value="#{citaController.fechaCita}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="fecha"/>
+                            </b:column>        
+                        </b:row>
+
+                        <b:row>
+                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="6">
+                                <b:commandButton value="Insertar"
+                                                 action="#{citaController.inserta()}"
+                                                 look="primary"
+                                                 style="width: 33%"/>
+                                <b:commandButton value="Eliminar"
+                                                 action="#{pacienteController.elimina()}"
+                                                 look="danger"
+                                                 style="width: 33%"/>
+                                <b:commandButton value="Modificar"
+                                                 action="#{pacienteController.modifica()}"
+                                                 look="success"
+                                                 style="width: 33%"/>                
+                            </b:column> 
+                        </b:row>     
+                    </b:panel>
+                </h:form>  
             </ui:define>
-
         </ui:composition>
-
-    </body>
+    </h:body>
 </html>
