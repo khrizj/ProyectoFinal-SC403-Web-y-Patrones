@@ -6,10 +6,28 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Registro de Pacientes</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+
+
+
+        <b:container fluid="true">
+            <b:panel title="login" look="primary" collapsed="false" style-class="centrado">
+                <b:column medium-screen="6">
+                    <b:form>
+                        <b:selectBooleanCheckbox value="#{settingsBean.checkbox1}" caption="checkbox 1" label="Please decide" />
+                    </b:form>
+                </b:column>
+                <b:column medium-screen="5"/>
+                <b:column medium-screen="1">
+                    <b:button href="/login.xhtml" value="Odontologos" look="info" size="sm" icon="fa-user"/>
+                </b:column>
+            </b:panel>
+        </b:container>
+
+
+
     </h:body>
 </html>
 
