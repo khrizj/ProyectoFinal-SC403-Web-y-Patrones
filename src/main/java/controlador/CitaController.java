@@ -32,7 +32,7 @@ public class CitaController extends Cita implements Serializable {
      public String inserta (){
         
         if (CitaGestion.citaInsert(this)){
-            return "pacientes.xhtml";
+            return "/Pacientes/pacientes.xhtml";
         }else{
             FacesMessage mensaje= new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error","Posible Identificación Duplicada");
