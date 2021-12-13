@@ -1,18 +1,18 @@
 package gestion;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import modelo.Paciente;
 import modelo.Conexion;
 
 public class PacienteGestion {
-     //CRUD elements
-    
+    //CRUD elements
+
     private static final String SQL_SELECT = "SELECT * FROM paciente WHERE cedulaPaciente = ?";
     private static final String SQL_SELECT_ALL = "SELECT * FROM paciente";
     private static final String SQL_INSERT = "INSERT INTO paciente (nacional, cedulaPaciente,"
@@ -35,7 +35,7 @@ public class PacienteGestion {
     //SQL_SELECT exec
     public static final Paciente pacienteValida(String username, String pass) {
 
-        Paciente paciente = null;
+        Paciente patient = null;
 
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(PACIENTE_SQL_VALIDA);
@@ -44,12 +44,13 @@ public class PacienteGestion {
             ResultSet rs = sqlQuery.executeQuery();
 
             if (rs.next()) {
-                paciente = new Paciente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+
+                patient = new Paciente(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
             }
         } catch (SQLException ex) {
             Logger.getLogger(PacienteGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return paciente;
+        return patient;
     }
 
     public static Paciente getPaciente(String cedulaAdmin) {
@@ -134,7 +135,7 @@ public class PacienteGestion {
             sqlQuery.setString(5, paciente.getApellido2());
             sqlQuery.setString(6, paciente.getUsername());
             sqlQuery.setString(7, paciente.getPass());
-            sqlQuery.setDate(8, paciente.getFechaNacimiento());
+            sqlQuery.setDate(8, (Date) paciente.getFechaNacimiento());
             sqlQuery.setInt(9, paciente.getEdad());
             sqlQuery.setBoolean(10, paciente.isSexo());
             sqlQuery.setString(11, paciente.getDireccion());
@@ -165,7 +166,7 @@ public class PacienteGestion {
             sqlQuery.setString(4, paciente.getApellido2());
             sqlQuery.setString(5, paciente.getUsername());
             sqlQuery.setString(6, paciente.getPass());
-            sqlQuery.setDate(7, paciente.getFechaNacimiento());
+            sqlQuery.setDate(7, (Date) paciente.getFechaNacimiento());
             sqlQuery.setInt(8, paciente.getEdad());
             sqlQuery.setBoolean(9, paciente.isSexo());
             sqlQuery.setString(10, paciente.getDireccion());

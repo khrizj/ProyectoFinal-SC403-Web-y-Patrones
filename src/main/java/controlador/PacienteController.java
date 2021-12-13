@@ -9,7 +9,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import modelo.Paciente;
 
-
+/**
+ *
+ * @author Christian Aguilar Alvarado
+ */
 @Named(value = "pacienteController")
 @SessionScoped
 public class PacienteController extends Paciente implements Serializable {
@@ -20,14 +23,14 @@ public class PacienteController extends Paciente implements Serializable {
 
     public String valida() {
 
-        Paciente paciente = PacienteGestion.pacienteValida(this.getUsername(), this.getPass());
+        Paciente paciente1 = PacienteGestion.pacienteValida(this.getUsername(), this.getPass());
 
-        if (paciente != null) {
+        if (paciente1 != null) {
 
-            this.setCedulaPaciente(paciente.getCedulaPaciente());
-            this.setNombre(paciente.getNombre());
-            this.setApellido1(paciente.getApellido1());
-            this.setApellido2(paciente.getApellido2());
+            this.setNombre(paciente1.getNombre());
+            this.setApellido1(paciente1.getApellido1());
+            this.setApellido2(paciente1.getApellido2());
+            this.setCedulaPaciente(paciente1.getCedulaPaciente());
             return "/Pacientes/pacientes.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Usuario o "
@@ -35,9 +38,9 @@ public class PacienteController extends Paciente implements Serializable {
             FacesContext.getCurrentInstance().addMessage("loginForm:clave", msg);
             return "/index.xhtml";
         }
-        
+
     }
-        
+
     public String pacienteInserta() {
 
         if (PacienteGestion.pacienteInsert(this)) {
@@ -45,7 +48,7 @@ public class PacienteController extends Paciente implements Serializable {
         } else {
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "Posible Identificación Duplicada");
-            FacesContext.getCurrentInstance().addMessage("editaEstudianteForm:identificacion", mensaje);
+            FacesContext.getCurrentInstance().addMessage("nuevoPacienteForm:Cedula", mensaje);
             return "/Pacientes/nuevoIngreso.xhtml";
         }
     }
@@ -115,4 +118,4 @@ public class PacienteController extends Paciente implements Serializable {
         return PacienteGestion.getPacientes();
     }
 
-    }
+}

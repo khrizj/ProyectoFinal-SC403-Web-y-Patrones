@@ -1,10 +1,11 @@
 package modelo;
 
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.validation.constraints.Email;
 
 public class Paciente {
-    
+
     //Attributes
     private boolean nacional;
     private String cedulaPaciente;
@@ -26,7 +27,7 @@ public class Paciente {
     private String cedulaOdontologo;
 
     //Constructors
-    public Paciente(){
+    public Paciente() {
     }
 
     public Paciente(boolean nacional, String cedulaPaciente, String nombre, String apellido1, String apellido2, String username, String pass, Date fechaNacimiento, int edad, boolean sexo, String direccion, String telefono1, String email, String nombreEncargado, String apellidoEncargado1, String apellidoEncargado2, boolean activo, String cedulaOdontologo) {
@@ -50,17 +51,13 @@ public class Paciente {
         this.cedulaOdontologo = cedulaOdontologo;
     }
 
-    public Paciente(String nombre, String apellido1, String apellido2,String cedulaPaciente) {
-
+    public Paciente(String nombre, String apellido1, String apellido2, String cedulaPaciente) {
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.cedulaPaciente = cedulaPaciente;
     }
 
- 
-
-    
     //Getter and Setters
     public boolean isNacional() {
         return this.nacional;
@@ -119,11 +116,34 @@ public class Paciente {
     }
 
     public Date getFechaNacimiento() {
-        return this.fechaNacimiento;
+        
+        //java.sql.Date sqlDate = new java.sql.Date(this.fechaNacimiento.getTime());
+
+         this.fechaNacimiento = new Date();
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        String formattedDate = simpleDateFormat.format(this.fechaNacimiento);
+
+        java.sql.Date fechaNaci = java.sql.Date.valueOf(formattedDate);
+        System.out.println(fechaNaci);  
+        
+        return fechaNaci;
     }
 
     public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+        
+        fechaNacimiento = new Date();
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        String formattedDate = simpleDateFormat.format(fechaNacimiento);
+
+        java.sql.Date fechaNaci = java.sql.Date.valueOf(formattedDate);
+        
+        System.out.println(fechaNaci);
+
+        this.fechaNacimiento = fechaNaci;
     }
 
     public int getEdad() {
@@ -205,7 +225,5 @@ public class Paciente {
     public void setCedulaOdontologo(String cedulaOdontologo) {
         this.cedulaOdontologo = cedulaOdontologo;
     }
-
-
 
 }
