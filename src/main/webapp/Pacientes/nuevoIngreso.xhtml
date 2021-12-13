@@ -10,259 +10,262 @@
     </h:head>
     <h:body>
 
+        <ui:composition template="./resources/plantillas/plantilla.xhtml">
+            <ui:define name="content">
 
-        <h:form id="nuevoPacienteForm">
-            <b:container fluid="true">
-                <b:panel title="Registro" look="primary" collapsed="false" style-class="centrado">
-                    <b:row>
-                        <b:column medium-screen="1">
-                            <b:form>
-                                <b:selectBooleanCheckbox required="false" value="#{pacienteController.nacional}" caption="Extrangero"/>
-                            </b:form>
-                        </b:column>
+                <h:form id="nuevoPacienteForm">
+                    <b:container fluid="true">
+                        <b:panel title="Registro" look="primary" collapsed="false" style-class="centrado">
+                            <b:row>
+                                <b:column medium-screen="1">
+                                    <b:form>
+                                        <b:selectBooleanCheckbox required="false" value="#{pacienteController.nacional}" caption="Extrangero"/>
+                                    </b:form>
+                                </b:column>
 
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="Cedula o Id"
-                                         label="Cedula o ID"
-                                         id="cedula"
-                                         required="true"
-                                         value="#{pacienteController.cedulaPaciente}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Cedula o Id"
+                                                 label="Cedula o ID"
+                                                 id="cedula"
+                                                 required="true"
+                                                 value="#{pacienteController.cedulaPaciente}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
 
-                        <b:column medium-screen="1">
-                            <b:form>
-                                <b:selectBooleanCheckbox label="Sexo" required="false" value="#{pacienteController.sexo}" caption="Mujer"/>
-                            </b:form>
-                        </b:column>
+                                <b:column medium-screen="1">
+                                    <b:form>
+                                        <b:selectBooleanCheckbox label="Sexo" required="false" value="#{pacienteController.sexo}" caption="Mujer"/>
+                                    </b:form>
+                                </b:column>
 
-                        <b:column medium-screen="1">
-                            <b:form>
-                                <b:selectBooleanCheckbox label="Paciente Activo" required="false" value="#{pacienteController.activo}" caption="Inactivar"/>
-                            </b:form>
-                        </b:column>
+                                <b:column medium-screen="1">
+                                    <b:form>
+                                        <b:selectBooleanCheckbox label="Paciente Activo" required="false" value="#{pacienteController.activo}" caption="Inactivar"/>
+                                    </b:form>
+                                </b:column>
 
-                        <b:column medium-screen="1">
+                                <b:column medium-screen="1">
 
-                        </b:column>
+                                </b:column>
 
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="Nombre"
-                                         id="nombre"
-                                         label="Nombre"
-                                         required="true"
-                                         value="#{pacienteController.nombre}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Nombre"
+                                                 id="nombre"
+                                                 label="Nombre"
+                                                 required="true"
+                                                 value="#{pacienteController.nombre}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
 
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="Primer apellido"
-                                         id="apellido1"
-                                         label="Primer Apellido"
-                                         required="true"
-                                         value="#{pacienteController.apellido1}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Primer apellido"
+                                                 id="apellido1"
+                                                 label="Primer Apellido"
+                                                 required="true"
+                                                 value="#{pacienteController.apellido1}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
 
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="Segundo apellido"
-                                         id="apellido2"
-                                         label="Segundo Apellido"
-                                         required="true"
-                                         value="#{pacienteController.apellido2}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
-                    </b:row>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Segundo apellido"
+                                                 id="apellido2"
+                                                 label="Segundo Apellido"
+                                                 required="true"
+                                                 value="#{pacienteController.apellido2}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
+                            </b:row>
 
-                    <b:row>
-                        <b:column medium-screen="6"></b:column>
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="Edad"
-                                         label="Edad"
-                                         id="edad"
-                                         required="true"
-                                         value="#{pacienteController.edad}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
-                    </b:row>
-                    <b:row>
-                        <b:column medium-screen="12"><br></br></b:column>
-                        <b:column medium-screen="12"><br></br></b:column>
-                        <b:column medium-screen="12"><br></br></b:column>
-                    </b:row>
-                    <b:row>
-                        <b:column medium-screen="12"></b:column>
-                    </b:row>
-                    <b:row>
+                            <b:row>
+                                <b:column medium-screen="6"></b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Edad"
+                                                 label="Edad"
+                                                 id="edad"
+                                                 required="true"
+                                                 value="#{pacienteController.edad}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="12"><br></br></b:column>
+                                <b:column medium-screen="12"><br></br></b:column>
+                                <b:column medium-screen="12"><br></br></b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="12"></b:column>
+                            </b:row>
+                            <b:row>
 
-                        <b:column medium-screen="6">
-                            <b:datepicker id="cdate3" mode="icon-toggle" showWeek="true"
-                                          firstDay="1" value="#{pacienteController.fechaNacimiento}" required="true"
-                                          label="Fecha Nacimeinto:" label-col-sm="5" col-sm="6"  />
-                        </b:column>
+                                <b:column medium-screen="6">
+                                    <b:datepicker id="cdate3" mode="icon-toggle" showWeek="true"
+                                                  firstDay="1" value="#{pacienteController.fechaNacimiento}" required="true"
+                                                  label="Fecha Nacimeinto:" label-col-sm="5" col-sm="6"  />
+                                </b:column>
 
-                    </b:row>
-                    <b:row>
-                        <b:column medium-screen="5">
-                        </b:column>
-                        <b:column medium-screen="1"></b:column>
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="Usuario"
-                                         label="Seleccione un Usuario"
-                                         id="User"
-                                         required="true"
-                                         value="#{pacienteController.username}">
-                                <f:facet name="prepend">
-                                    <b:icon name="user"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="Password"
-                                         label="Seleccione una Contraseña"
-                                         id="pass"
-                                         required="true"
-                                         value="#{pacienteController.pass}">
-                                <f:facet name="prepend">
-                                    <b:icon name="lock"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="user@email.com"
-                                         label="Correo Electronico"
-                                         id="correo"
-                                         required="true"
-                                         value="#{pacienteController.email}">
-                                <f:facet name="prepend">
-                                    <b:icon name="lock"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
-                    </b:row>
-                    <!-- DaTos Encargado -->
-                    <b:row>
-                        <b:column medium-screen="2">
-                            <b:message for="nombreEncargado"/>
-                            <b:inputText placeholder="Nombre del Encargado"
-                                         id="nombreEncargado"
-                                         label="Nombre Encargado"
-                                         required="true"
-                                         value="#{pacienteController.nombreEncargado}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="5">
+                                </b:column>
+                                <b:column medium-screen="1"></b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Usuario"
+                                                 label="Seleccione un Usuario"
+                                                 id="User"
+                                                 required="true"
+                                                 value="#{pacienteController.username}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="user"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Password"
+                                                 label="Seleccione una Contraseña"
+                                                 id="pass"
+                                                 required="true"
+                                                 value="#{pacienteController.pass}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="lock"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="user@email.com"
+                                                 label="Correo Electronico"
+                                                 id="correo"
+                                                 required="true"
+                                                 value="#{pacienteController.email}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="lock"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
+                            </b:row>
+                            <!-- DaTos Encargado -->
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <b:message for="nombreEncargado"/>
+                                    <b:inputText placeholder="Nombre del Encargado"
+                                                 id="nombreEncargado"
+                                                 label="Nombre Encargado"
+                                                 required="true"
+                                                 value="#{pacienteController.nombreEncargado}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
 
-                        <b:column medium-screen="2">
-                            <b:message for="apellidoEncargado"/>
-                            <b:inputText placeholder="Primer apellido"
-                                         id="apellidoEncargado"
-                                         label="Primer Apellido"
-                                         required="true"
-                                         value="#{pacienteController.apellidoEncargado1}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
+                                <b:column medium-screen="2">
+                                    <b:message for="apellidoEncargado"/>
+                                    <b:inputText placeholder="Primer apellido"
+                                                 id="apellidoEncargado"
+                                                 label="Primer Apellido"
+                                                 required="true"
+                                                 value="#{pacienteController.apellidoEncargado1}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
 
-                        <b:column medium-screen="2">
-                            <b:message for="apellido2Encargado"/>
-                            <b:inputText placeholder="Segundo apellido"
-                                         id="apellido2Encargado"
-                                         label="Segundo Apellido"
-                                         required="true"
-                                         value="#{pacienteController.apellidoEncargado2}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
+                                <b:column medium-screen="2">
+                                    <b:message for="apellido2Encargado"/>
+                                    <b:inputText placeholder="Segundo apellido"
+                                                 id="apellido2Encargado"
+                                                 label="Segundo Apellido"
+                                                 required="true"
+                                                 value="#{pacienteController.apellidoEncargado2}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
 
-                        <b:column medium-screen="2">
-                            <b:inputText placeholder="99998888"
-                                         id="phone"
-                                         label="Telefono"
-                                         required="true"
-                                         value="#{pacienteController.telefono1}">
-                                <f:facet name="prepend">
-                                    <b:icon name="info-sign"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="99998888"
+                                                 id="phone"
+                                                 label="Telefono"
+                                                 required="true"
+                                                 value="#{pacienteController.telefono1}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="info-sign"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
 
-                        <b:column medium-screen="4">
-                            <b:inputText placeholder="Direccion"
-                                         id="direccion"
-                                         label="Direccion"
-                                         required="true"
-                                         value="#{pacienteController.direccion}">
-                                <f:facet name="prepend">
-                                    <b:icon name="home"/>
-                                </f:facet>
-                            </b:inputText>
-                        </b:column>
-                    </b:row>
-                    <b:row>
-                        <b:column medium-screen="9">
-                            <b:form horizontal="true">
-                                <b:formGroup>
-                                    <b:selectOneMenu value="#{pacienteController.cedulaOdontologo}" colMd="2" required="true" label="Seleccione la especialidad" labelColMd="2"
-                                                     select2="true">
-                                        <f:selectItem itemLabel="(Please select)" itemValue="" />
-                                        <f:selectItem itemLabel="Odontologia General" itemValue="701620535"/>
-                                        <f:selectItem itemLabel="Odontopediatria" itemValue="112580307" />
-                                        <f:selectItem itemLabel="Ortodoncia" itemValue="112500520" />
-                                        <f:selectItem itemLabel="Prostodoncia" itemValue="112380352" />
-                                        <f:selectItem itemLabel="Endodoncia" itemValue="112050234" />
-                                        <f:selectItem itemLabel="Periodoncia" itemValue="701620535" />
-                                        <f:selectItem itemLabel="Maxilofacial" itemValue="112440390" />
-                                    </b:selectOneMenu>
-                                    <b:message for="@previous" colMd="2" />
-                                    <b:inputText value="#{pacienteController.cedulaOdontologo}" disabled="true" colMd="4" labelColMd="2" />
-                                </b:formGroup>
-                                <b:commandButton value="Escoger especialidad"
-                                                 process="@form" 
-                                                 update="@form"
-                                                 id="enviarData" 
-                                                 look="warning" 
-                                                 />
-                            </b:form>
-                        </b:column> 
-                    </b:row>
-                    <b:row>
-                        <b:column medium-screen="5"></b:column>
-                        <b:column medium-screen="7">
-                            <b:commandButton value="Enviar Datos"
-                                             process="@form" 
-                                             update="@form"
-                                             id="insertarDatos" 
-                                             look="success" 
-                                             action="#{pacienteController.pacienteInserta()}" />
-                        </b:column>
-                    </b:row>
-                </b:panel>
-            </b:container>
-        </h:form>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Direccion"
+                                                 id="direccion"
+                                                 label="Direccion"
+                                                 required="true"
+                                                 value="#{pacienteController.direccion}">
+                                        <f:facet name="prepend">
+                                            <b:icon name="home"/>
+                                        </f:facet>
+                                    </b:inputText>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="9">
+                                    <b:form horizontal="true">
+                                        <b:formGroup>
+                                            <b:selectOneMenu value="#{pacienteController.cedulaOdontologo}" colMd="2" required="true" label="Seleccione la especialidad" labelColMd="2"
+                                                             select2="true">
+                                                <f:selectItem itemLabel="(Please select)" itemValue="" />
+                                                <f:selectItem itemLabel="Odontologia General" itemValue="701620535"/>
+                                                <f:selectItem itemLabel="Odontopediatria" itemValue="112580307" />
+                                                <f:selectItem itemLabel="Ortodoncia" itemValue="112500520" />
+                                                <f:selectItem itemLabel="Prostodoncia" itemValue="112380352" />
+                                                <f:selectItem itemLabel="Endodoncia" itemValue="112050234" />
+                                                <f:selectItem itemLabel="Periodoncia" itemValue="701620535" />
+                                                <f:selectItem itemLabel="Maxilofacial" itemValue="112440390" />
+                                            </b:selectOneMenu>
+                                            <b:message for="@previous" colMd="2" />
+                                            <b:inputText value="#{pacienteController.cedulaOdontologo}" disabled="true" colMd="4" labelColMd="2" />
+                                        </b:formGroup>
+                                        <b:commandButton value="Escoger especialidad"
+                                                         process="@form" 
+                                                         update="@form"
+                                                         id="enviarData" 
+                                                         look="warning" 
+                                                         />
+                                    </b:form>
+                                </b:column> 
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="5"></b:column>
+                                <b:column medium-screen="7">
+                                    <b:commandButton value="Enviar Datos"
+                                                     process="@form" 
+                                                     update="@form"
+                                                     id="insertarDatos" 
+                                                     look="success" 
+                                                     action="#{pacienteController.pacienteInserta()}" />
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </h:form>
 
-
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 
