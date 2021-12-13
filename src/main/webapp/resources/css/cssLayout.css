@@ -145,6 +145,16 @@
 .social-icon--instagram .tooltip:after{
     border-top-color: #527fa6;
 }
-.panel-primary{
-    margin-top: 4%;
-}
+
+            .centrado{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                bottom: 0;
+                width: 400px;
+                height: 300px;
+                margin: auto;
+                margin-left: -200px;
+                margin-top: -150px;
+            }
+

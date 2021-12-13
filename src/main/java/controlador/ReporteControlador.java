@@ -3,6 +3,8 @@ package controlador;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
@@ -26,20 +28,30 @@ import net.sf.jasperreports.engine.JasperPrint;
 @SessionScoped
 public class ReporteControlador implements Serializable{
     //Este bean controla la descarga de los reportes de Jasper de un solo lugar
-
-    //TODO: Modificar esta linea para incluir el path donde irían los distintos reportes
-    private final static String REPORTPATH = "";
+    private final static String PACIENTEREPORTPATH = "/Pacientes/Reporte_Citas_Paciente.jasper";
+    private final static String ODONTOREPORTPATH = "/Doctores/Reporte_Cita.jasper";
 
     //Constructor
     public ReporteControlador() {
     }
 
-    public void createReport(String reportName, int action) throws IOException{
+    public void createReport(Paciente paciente, String reportName, int action, boolean odontoReport) throws IOException{
         //El método permite crear el reporte en PDF para descarga o vista dependiendo de cómo se ocupe
         //Para vista action = 0, para descargar action = 1
+        Map<String, Object> paramReport = new HashMap<>();
+        String pacienteID = paciente.getCedulaPaciente();
+        paramReport.put("cedulaPaciente", pacienteID);
+
         try {
-            File jReportFile = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath(REPORTPATH + reportName));
-            JasperPrint jPrinter = JasperFillManager.fillReport(jReportFile.getPath(), null, Conexion.getConexion());
+            File jReportFile = null;
+            
+            if(odontoReport){
+                jReportFile = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath(ODONTOREPORTPATH));
+            }else{
+                jReportFile = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath(PACIENTEREPORTPATH));
+            }
+
+            JasperPrint jPrinter = JasperFillManager.fillReport(jReportFile.getPath(), paramReport, Conexion.getConexion());
             HttpServletResponse hResponse = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
             
             if(action == 0){

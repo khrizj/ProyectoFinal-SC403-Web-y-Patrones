@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registro de Pacientes</title>
+    </h:head>
+    <h:body>
+
+
+
+        <b:container fluid="true">
+            <b:panel title="login" look="primary" collapsed="false" style-class="centrado">
+                <b:column medium-screen="6">
+                    <b:form>
+                        <b:selectBooleanCheckbox value="#{settingsBean.checkbox1}" caption="checkbox 1" label="Please decide" />
+                    </b:form>
+                </b:column>
+                <b:column medium-screen="5"/>
+                <b:column medium-screen="1">
+                    <b:button href="/login.xhtml" value="Odontologos" look="info" size="sm" icon="fa-user"/>
+                </b:column>
+            </b:panel>
+        </b:container>
+
+
+
+    </h:body>
+</html>
+

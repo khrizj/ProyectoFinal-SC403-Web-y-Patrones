@@ -39,8 +39,8 @@ public class PacienteGestion {
 
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(PACIENTE_SQL_VALIDA);
-            sqlQuery.setString(6, username);
-            sqlQuery.setString(7, pass);
+            sqlQuery.setString(1, username);
+            sqlQuery.setString(2, pass);
             ResultSet rs = sqlQuery.executeQuery();
 
             if (rs.next()) {
@@ -156,7 +156,7 @@ public class PacienteGestion {
     }
 
     //SQL_UPDATE Exec
-    public static boolean adminUpdate(Paciente paciente) {
+    public static boolean pacienteUpdate(Paciente paciente) {
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(SQL_UPDATE);
             sqlQuery.setBoolean(1, paciente.isNacional());
@@ -189,7 +189,7 @@ public class PacienteGestion {
     }
 
     //SQL_DELETE Exec
-    public static boolean adminDelete(Paciente paciente) {
+    public static boolean pacienteDelete(Paciente paciente) {
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(SQL_DELETE);
             sqlQuery.setString(1, paciente.getCedulaPaciente());

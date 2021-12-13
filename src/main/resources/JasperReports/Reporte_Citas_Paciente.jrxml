@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Citas_Paciente" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="10b11e11-be94-4be0-bf43-cc368d40ba53">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="467"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="521"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+	<parameter name="cedulaPaciente" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$F{cedulaPaciente}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT clinicaodontologica.cita.`cedulaPaciente`,
+	clinicaodontologica.paciente.nombre,
+	clinicaodontologica.paciente.apellido1,
+	clinicaodontologica.paciente.apellido2,
+	clinicaodontologica.cita.`fechaCita`,
+	clinicaodontologica.cita.`motivoCita`
+FROM clinicaodontologica.cita,
+	clinicaodontologica.paciente
+WHERE 
+	  $X{IN, clinicaodontologica.cita.`cedulaPaciente` }]]>
+	</queryString>
+	<field name="cedulaPaciente" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cedulaPaciente"/>
+		<property name="com.jaspersoft.studio.field.label" value="cedulaPaciente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cita"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombre"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido1" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellido1"/>
+		<property name="com.jaspersoft.studio.field.label" value="apellido1"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellido2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="apellido2"/>
+		<property name="com.jaspersoft.studio.field.label" value="apellido2"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="paciente"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaCita" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="fechaCita"/>
+		<property name="com.jaspersoft.studio.field.label" value="fechaCita"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cita"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="motivoCita" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="motivoCita"/>
+		<property name="com.jaspersoft.studio.field.label" value="motivoCita"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cita"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="fe5bc405-16f9-40da-b95e-c9d1def0f653"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="601ecd44-e703-455f-be8c-4e131c3342f2"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte Citas]]></text>
+				</staticText>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="480" y="26" width="92" height="20" uuid="f3ce5f41-e6ed-4eca-9be0-24405e667c78">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9604cad4-7d38-4986-92f3-9630e1e21114"/>
+					</reportElement>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{cedulaPaciente}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="296" y="46" width="92" height="20" uuid="d100bf23-0137-49f7-bcea-bf47b58eb473">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68e4ad5a-0dc1-48b3-a09f-5756a66e1c20"/>
+					</reportElement>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="388" y="46" width="92" height="20" uuid="8c05ae86-ce0f-48b1-9f08-5a7ffb15e4fb">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="40ca6260-7294-415e-bf99-770ee6c56dd6"/>
+					</reportElement>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{apellido1}]]></textFieldExpression>
+				</textField>
+				<textField textAdjust="StretchHeight">
+					<reportElement x="480" y="46" width="92" height="20" uuid="6b10dc10-0ef0-4581-a6bf-8b319538498e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7264a5ee-3b18-4acf-9c5d-1e4d0a39213a"/>
+					</reportElement>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{apellido2}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="b44b79dd-06a0-4e96-b879-ff80ee4a5a32"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="464beae4-cba4-42d8-94bb-5f465bae934c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85a8c035-91d3-4637-9059-4d37e1e6cf90"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fechaCita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="90" y="0" width="465" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e2effd7a-383d-4f89-92ab-19a667c73f35">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56b0edd8-e694-4af3-a0f2-94f01975c464"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[motivoCita]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="21" width="92" height="20" uuid="5f0b03cb-5d68-4430-b890-2000fb714a62">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="85a8c035-91d3-4637-9059-4d37e1e6cf90"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaCita}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="92" y="21" width="463" height="20" uuid="06114c61-1d39-4363-ace2-b202101d4f58">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56b0edd8-e694-4af3-a0f2-94f01975c464"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motivoCita}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="57635494-2eb1-499f-950f-522a1d972e73"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="aaa86857-a7ab-45b1-bc20-6d8a28a37819"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="300a5495-d036-4ed4-be00-434ebbac3600"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="3b92f490-9127-4567-b158-7925c70956a0"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
