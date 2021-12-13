@@ -13,6 +13,10 @@ public class Evolucion {
   private boolean satisfechoConDentadura;
   private String cedulaPaciente;
 
+
+    public Evolucion() {
+    }
+
     public Evolucion(String motivoConsulta, boolean presenciaDolor, String descripcion, boolean satisfechoConDentadura, String cedulaPaciente) {
         this.motivoConsulta = motivoConsulta;
         this.presenciaDolor = presenciaDolor;

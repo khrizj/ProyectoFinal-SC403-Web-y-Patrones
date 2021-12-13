@@ -17,7 +17,7 @@ public class OdontologoController extends Odontologo implements Serializable {
         super("", "", "", 0);
     }
     
-        public String valida() {
+    public String valida() {
 
         Odontologo odontologo = OdontologoGestion.odontoValida(this.getUsername(), this.getPassw());
         
