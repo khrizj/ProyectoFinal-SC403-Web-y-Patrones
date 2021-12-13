@@ -31,6 +31,50 @@
         </style>
     </h:head>
     <h:body>
+
+
+        <b:breadcrumbs>
+            <b:navBar brand="DentalPro" brandHref="/index.xhtml" inverse="true" fixed="top" fluid="true">
+                <b:navbarLinks pull="left">
+                    <b:image library="images" name="DentalPro.png" height="60px"/>
+                </b:navbarLinks>
+                <b:navbarLinks pull="left">
+                    <b:navLink value="Especialidades" href="#{request.contextPath}/especialidades.xhtml"></b:navLink>
+                    <b:navLink value="Contactenos" href="contacto.xhtml"></b:navLink>
+                </b:navbarLinks>
+                <b:navbarLinks pull="right">
+                    <b:navLink value="Registrate"  href="/Pacientes/nuevoIngreso.xhtml"></b:navLink>
+                    <h:form styleClass="navbar-form  navbar-right">
+                        <div class="form-group">
+                            <b:inputText placeholder="Usuario" 
+                                         fieldSize="sm" 
+                                         id="usuario"
+                                         required="true"
+                                         autocomplete="true"
+                                         value="#{pacienteController.username}"/>
+                            <!--input type="text" class="form-control" placeholder="Search"/-->
+                        </div>
+                        <div class="form-group">
+                            <b:inputSecret placeholder="Password" 
+                                           fieldSize="sm" 
+                                           id="clave"
+                                           required="true"
+                                           value="#{pacienteController.pass}"/>
+                        </div> 
+                        #{' '}
+                        <b:commandButton 
+                            value="Sign in" 
+                            look="success" 
+                            icon="chevron-right" 
+                            iconAlign="right"
+                            action="#{pacienteController.valida()}"
+                            />
+                    </h:form>
+                </b:navbarLinks>
+            </b:navBar>
+        </b:breadcrumbs>
+
+
         <h:form id="loginForm">
             <b:container fluid="true">
                 <b:panel title="login" look="primary" collapsed="false" style-class="centrado">

@@ -27,6 +27,18 @@ public class DatosMedicos {
         this.cedulaPaciente = cedulaPaciente;
     }
 
+    public DatosMedicos(String antecedentesPatologicosPersonales, String antecedentesPatologicosFamiliares, String antecedentesQuirurgicos, boolean alergia, String alergiaDetalle, String medicamentosConsumidos, String cedulaPaciente) {
+        this.antecedentesPatologicosPersonales = antecedentesPatologicosPersonales;
+        this.antecedentesPatologicosFamiliares = antecedentesPatologicosFamiliares;
+        this.antecedentesQuirurgicos = antecedentesQuirurgicos;
+        this.alergia = alergia;
+        this.alergiaDetalle = alergiaDetalle;
+        this.medicamentosConsumidos = medicamentosConsumidos;
+        this.cedulaPaciente = cedulaPaciente;
+    }
+    
+    
+
     //Getter and Setters
     public int getIdDatosMedicos() {
         return this.idDatosMedicos;
