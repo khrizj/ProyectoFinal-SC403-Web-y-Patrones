@@ -38,51 +38,51 @@ public class PacienteController extends Paciente implements Serializable {
         
     }
         
-            public String pacienteInserta (){
-        
-        if (PacienteGestion.pacienteInsert(this)){
+    public String pacienteInserta() {
+
+        if (PacienteGestion.pacienteInsert(this)) {
             return "/Pacientes/nuevoIngreso.xhtml";
-        }else{
-            FacesMessage mensaje= new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "Error","Posible Identificación Duplicada");
+        } else {
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Error", "Posible Identificación Duplicada");
             FacesContext.getCurrentInstance().addMessage("editaEstudianteForm:identificacion", mensaje);
             return "/Pacientes/nuevoIngreso.xhtml";
         }
     }
-    
-    public String modifica (){
-        
-        if (PacienteGestion.pacienteUpdate(this)){
+
+    public String pacienteModifica() {
+
+        if (PacienteGestion.pacienteUpdate(this)) {
             return "/Pacientes/pacientes.xhtml";
-            
-        }else{
+
+        } else {
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-            "Error","Posible Identificación Duplicada");
+                    "Error", "Posible Identificación Duplicada");
             FacesContext.getCurrentInstance().addMessage("editaPacienteForm:identificacion", mensaje);
             return "/Pacientes/pacientes.xhtml";
         }
-        
+
     }
-    
-    public String elimina (){
-        
-        if (PacienteGestion.pacienteDelete(this)){
+
+    public String pacienteElimina() {
+
+        if (PacienteGestion.pacienteDelete(this)) {
             return "/Doctores/Odontologos.xhtml";
-        }else{
-            FacesMessage mensaje= new FacesMessage (FacesMessage.SEVERITY_ERROR,
-            "Error", "Posible que el id no exista");
+        } else {
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                    "Error", "Posible que el id no exista");
             FacesContext.getCurrentInstance().addMessage("editaPacienteForm:identificacion", mensaje);
             return "/Doctores/Odontologos.xhtml";
         }
-        
+
     }
-    
-    public String edita (String id){
-        
-        Paciente paciente=  PacienteGestion.getPaciente(id);
-        
-        if (paciente !=null){
-            
+
+    public String pacienteEdita(String id) {
+
+        Paciente paciente = PacienteGestion.getPaciente(id);
+
+        if (paciente != null) {
+
             this.setNacional(paciente.isNacional());
             this.setCedulaPaciente(paciente.getCedulaPaciente());
             this.setNombre(paciente.getNombre());
@@ -101,18 +101,17 @@ public class PacienteController extends Paciente implements Serializable {
             this.setApellidoEncargado2(paciente.getPass());
             this.setActivo(paciente.isActivo());
             return "/Pacientes/pacientes.xhtml";
-        }else{
-            
+        } else {
+
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-            "Error","Posiblemente el id no exista");
+                    "Error", "Posiblemente el id no exista");
             FacesContext.getCurrentInstance().addMessage("pacientesForm", mensaje);
             return "/Pacientes/pacientes.xhtml";
         }
-        
+
     }
-    
-    
-    public List<Paciente> getEstudiantes(){
+
+    public List<Paciente> getPacientes() {
         return PacienteGestion.getPacientes();
     }
 
