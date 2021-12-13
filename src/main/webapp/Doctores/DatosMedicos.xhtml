@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/plantillas/plantillaOdontologos.xhtml">
+
+            <ui:define name="content">
+                <h:form id="datosMedicosForm">
+                    <b:container>
+                        <h2>Datos Médicos</h2>
+                        <b:row>
+                            <b:column span="4">
+                                <h:outputText value="Cédula del paciente:" />
+                            </b:column>
+                            <b:column span="6">
+                                <b:inputText value="#{DatosMedicosController.cedulaPaciente}" required="true"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="4">
+                                <h:outputText value="Antecedentes Personales:" />
+                            </b:column>
+                            <b:column span="6">
+                                <b:inputText value="#{DatosMedicosController.antecedentesPatologicosPersonales}" required="true" />
+                            </b:column>
+                        <b:row>
+                            <b:column span="4">
+                                <h:outputText value="Antecedentes Familiares:" />
+                            </b:column>
+                            <b:column span="6">
+                                <b:inputText value="#{DatosMedicosController.antecedentesPatologicosFamiliares}" required="true"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="4">
+                                <h:outputText value="Antecedentes Quirurgicos:" />
+                            </b:column>
+                            <b:column span="6">
+                                <b:inputText value="#{DatosMedicosController.antecedentesQuirurgicos}" required="true"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="2">
+                                <h:outputText value="¿Alergias?:" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{DatosMedicosController.alergia}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="4">
+                                <h:outputText value="Detalle sobre alergias:" />
+                            </b:column>
+                            <b:column span="6">
+                                <b:inputText value="#{DatosMedicosController.alergiaDetalle}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="4">
+                                <h:outputText value="Medicamentos consumidos:" />
+                            </b:column>
+                            <b:column span="6">
+                                <b:inputText value="#{DatosMedicosController.medicamentosConsumidos}" required="true"/>
+                            </b:column>
+                        </b:row>
+                        <b:commandButton value="Guardar" 
+                                         ajax="true" 
+                                         process="@form" 
+                                         update="@form"
+                                         action="#{DatosMedicosController.datosMedToSave()}"
+                                         icon="save" 
+                                         look="primary" />
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

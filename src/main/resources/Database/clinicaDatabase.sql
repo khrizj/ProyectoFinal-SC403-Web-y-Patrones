@@ -212,3 +212,5 @@ insert into odontologo (cedulaOdontologo,nombre,apellido1,apellido2,username,pas
 ('112580307','Melissa','Rojas','Zuñiga','meliroj','melisa123','San Jose Sabanilla Montes de Oca','83411162','odontopediatriacr@gmail.com',1),
 ('112500520','Tony','Sanchez','Achio','tonysan','tony123','San Jose San Pedro Montes de Oca','22368090','dr_tsanchez@hotmail.com',1),
 ('112050234','Silvia','Aragon','Matamoros','silvara','silvia123','San Jose Guayabos Curridabat','60208504','aragonsilvia8403@gmail.com',1);
+
+insert into paciente() values (1,"110130456","Christian","Aguilar","Alvarado","chrisAA","123","1981-09-20",40,1,"San Jose",555555555,"email@gmail.com","No aplica","No aplica","No aplica",1,112440390);

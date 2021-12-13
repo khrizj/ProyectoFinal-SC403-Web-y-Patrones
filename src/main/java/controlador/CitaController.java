@@ -7,7 +7,6 @@ package controlador;
 
 import gestion.CitaGestion;
 import java.io.Serializable;
-import java.util.Date;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
