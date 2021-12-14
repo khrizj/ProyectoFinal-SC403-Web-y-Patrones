@@ -1,7 +1,7 @@
 package controlador;
 
 import gestion.EvolucionGestion;
-import gestion.OdontologoGestion;
+
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -9,16 +9,12 @@ import java.lang.reflect.Field;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import modelo.Conexion;
 import modelo.Evolucion;
 
 @Named(value = "evolucionController")
@@ -27,8 +23,66 @@ import modelo.Evolucion;
 public class EvolucionController extends Evolucion implements Serializable {
     //Constructor
     public EvolucionController() {
+        super("", false, "", false, "");
     }
     
+    //Insert
+    public String evolucionInsert(){
+        if(EvolucionGestion.evolucionInsert(this)){
+            return "";
+        }else{
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                    "Error","Posible duplicación de evolución");
+            FacesContext.getCurrentInstance().addMessage("", message);
+            return "";
+        }
+    }
+
+    //Update
+    public String evolucionUpdate(){
+        if(EvolucionGestion.evolucionUpdate(this)){
+            return "";
+        }else{
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                    "Error","Posible duplicación de evolución");
+            FacesContext.getCurrentInstance().addMessage("", message);
+            return "";
+        }
+    }
+
+    //Delete
+    public String evolucionDelete(){
+        if(EvolucionGestion.evolucionInsert(this)){
+            return "";
+        }else{
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                    "Error","Información de evolución inexistente");
+            FacesContext.getCurrentInstance().addMessage("", message);
+            return "";
+        }
+    }
+
+    //Edit
+    public String evolucionEdit(String cedulaId){
+        Evolucion evoObj = EvolucionGestion.getEvolucionXPaciene(cedulaId);
+
+        if(evoObj != null){
+            this.setMotivoConsulta(evoObj.getMotivoConsulta());
+            this.setPresenciaDolor(evoObj.isPresenciaDolor());
+            this.setDescripcion(evoObj.getDescripcion());
+            this.setSatisfechoConDentadura(evoObj.isSatisfechoConDentadura());
+            this.setCedulaPaciente(evoObj.getCedulaPaciente());
+            return "";
+        }else{
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                                    "Error","Información de evolución inexistente");
+            FacesContext.getCurrentInstance().addMessage("", message);
+            return "";
+        }
+    }
+
+
+    //TODO: Arreglar este código que sigue, posiblemente necesite eliminarse
     /********************************************************************************
      * 
      * El siguiente método permite el ingreso de datos médicos para el odontólogo.

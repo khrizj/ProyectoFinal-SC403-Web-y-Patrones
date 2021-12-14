@@ -1,6 +1,5 @@
 package modelo;
 
-import javax.validation.constraints.Email;
 
 public class Administrador {
     
@@ -14,7 +13,7 @@ public class Administrador {
     private String direccion;
     private String telefono1;
     private String email;
-    private int idClinica;//This one auto increments in DB, so maybe has to go??
+    private int idClinica;
 
     //Constructors
     public Administrador(){

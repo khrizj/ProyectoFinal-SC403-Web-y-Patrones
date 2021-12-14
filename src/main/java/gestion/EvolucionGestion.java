@@ -26,13 +26,13 @@ public class EvolucionGestion {
 
     //Executions
     //SQL_SELECT exec
-    public static Evolucion getEvolucionXPaciene(String cedulaAdmin) {
+    public static Evolucion getEvolucionXPaciene(String cedulaPaciente) {
 
         Evolucion evolucion = null;
 
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(EVOLUCION_SQL_SELECT);
-            sqlQuery.setString(1, cedulaAdmin);
+            sqlQuery.setString(1, cedulaPaciente);
             ResultSet dataSet = sqlQuery.executeQuery();
 
             if (dataSet.next()) {
@@ -44,7 +44,7 @@ public class EvolucionGestion {
                         dataSet.getString(6));
             }
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(EvolucionGestion.class.getName()).log(Level.SEVERE, null, e);
         }
         return evolucion;
     }
@@ -68,7 +68,7 @@ public class EvolucionGestion {
             }
 
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(EvolucionGestion.class.getName()).log(Level.SEVERE, null, e);
         }
         return evolList;
     }
@@ -86,7 +86,7 @@ public class EvolucionGestion {
             return sqlQuery.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(EvolucionGestion.class.getName()).log(Level.SEVERE, null, e);
         }
 
         return false;
@@ -105,7 +105,7 @@ public class EvolucionGestion {
             return sqlQuery.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(EvolucionGestion.class.getName()).log(Level.SEVERE, null, e);
         }
 
         return false;
@@ -121,7 +121,7 @@ public class EvolucionGestion {
             return sqlQuery.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(EvolucionGestion.class.getName()).log(Level.SEVERE, null, e);
         }
 
         return false;
