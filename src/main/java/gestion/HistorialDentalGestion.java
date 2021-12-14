@@ -141,7 +141,7 @@ public class HistorialDentalGestion {
         //SQL_DELETE Exec
         public static boolean historialDentalDelete(HistoriaDental historial){
             try{
-                PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(SQL_SELECT_ALL);
+                PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(SQL_DELETE);
                 sqlQuery.setString(1, historial.getCedulaPaciente());
                 sqlQuery.setInt(2, historial.getIdHistoriaDental());
 

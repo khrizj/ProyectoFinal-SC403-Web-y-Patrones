@@ -2,7 +2,6 @@ package modelo;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.validation.constraints.Email;
 
 public class Paciente {
 
