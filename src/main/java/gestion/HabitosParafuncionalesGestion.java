@@ -27,13 +27,13 @@ public class HabitosParafuncionalesGestion {
 
     //Executions
     //SQL_SELECT exec
-    public static HabitosParafuncionales getHabitoP(String cedulaAdmin){
+    public static HabitosParafuncionales getHabitoP(String cedulaPaciente){
     
         HabitosParafuncionales habitoP = null;
 
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(HABITOSP_SQL_SELECT);
-            sqlQuery.setString(1, cedulaAdmin);
+            sqlQuery.setString(1, cedulaPaciente);
             ResultSet dataSet = sqlQuery.executeQuery();
 
             if(dataSet.next()){
@@ -47,13 +47,13 @@ public class HabitosParafuncionalesGestion {
                                           dataSet.getString(8));
             }
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(HabitosParafuncionalesGestion.class.getName()).log(Level.SEVERE, null, e);
         }
         return habitoP;
     }
     
     //SQL_SELECT_ALL exec
-    public static ArrayList<HabitosParafuncionales> getAdmins(){
+    public static ArrayList<HabitosParafuncionales> getHabitos(){
 
         ArrayList<HabitosParafuncionales> habitosPList = new ArrayList<>();
 
@@ -73,13 +73,13 @@ public class HabitosParafuncionalesGestion {
             }
 
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(HabitosParafuncionalesGestion.class.getName()).log(Level.SEVERE, null, e);
         }
         return habitosPList;
     }
 
     //SQL_INSERT Exec
-    public static boolean habitosParaInsert(HabitosParafuncionales habitosP){
+    public static boolean habitosParafInsert(HabitosParafuncionales habitosP){
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(HABITOSP_SQL_INSERT);
             sqlQuery.setBoolean(1, habitosP.isComeUnnas());
@@ -94,7 +94,7 @@ public class HabitosParafuncionalesGestion {
             return sqlQuery.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(HabitosParafuncionalesGestion.class.getName()).log(Level.SEVERE, null, e);
         }
         
         return false;
@@ -116,14 +116,14 @@ public class HabitosParafuncionalesGestion {
             return sqlQuery.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(HabitosParafuncionalesGestion.class.getName()).log(Level.SEVERE, null, e);
         }
         
         return false;
     }
 
     //SQL_DELETE Exec
-    public static boolean adminDelete(HabitosParafuncionales habitosP){
+    public static boolean habitosParafDelete(HabitosParafuncionales habitosP){
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(HABITOSP_SQL_DELETE);
             sqlQuery.setString(1, habitosP.getCedulaPaciente());
@@ -131,7 +131,7 @@ public class HabitosParafuncionalesGestion {
             return sqlQuery.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(HabitosParafuncionalesGestion.class.getName()).log(Level.SEVERE, null, e);
         }
         
         return false;

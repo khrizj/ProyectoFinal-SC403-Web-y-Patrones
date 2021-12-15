@@ -49,7 +49,7 @@ public class OdontologoGestion {
                 odontologo = new Odontologo(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(PacienteGestion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OdontologoGestion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return odontologo;
     }
@@ -75,22 +75,22 @@ public class OdontologoGestion {
                         dataSet.getString(9));
             }
         } catch (SQLException e) {
-            Logger.getLogger(PacienteGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(OdontologoGestion.class.getName()).log(Level.SEVERE, null, e);
         }
         return odontologo;
     }
 
     //SQL_SELECT_ALL exec
-    public static ArrayList<Odontologo> getOdontologo() {
+    public static ArrayList<Odontologo> getOdontologos() {
 
-        ArrayList<Odontologo> OdontologoList = new ArrayList<>();
+        ArrayList<Odontologo> odontologoList = new ArrayList<>();
 
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(SQL_SELECT_ALL);
             ResultSet dataSet = sqlQuery.executeQuery();
 
             while (dataSet != null && dataSet.next()) {
-                OdontologoList.add(new Odontologo(dataSet.getInt(1),
+                odontologoList.add(new Odontologo(dataSet.getInt(1),
                         dataSet.getString(2),
                         dataSet.getString(3),
                         dataSet.getString(4),
@@ -104,7 +104,7 @@ public class OdontologoGestion {
         } catch (SQLException e) {
             Logger.getLogger(OdontologoGestion.class.getName()).log(Level.SEVERE, null, e);
         }
-        return OdontologoList;
+        return odontologoList;
     }
 
     //SQL_INSERT Exec
@@ -149,7 +149,7 @@ public class OdontologoGestion {
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            Logger.getLogger(PacienteGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(OdontologoGestion.class.getName()).log(Level.SEVERE, null, e);
         }
 
         return false;
@@ -164,7 +164,7 @@ public class OdontologoGestion {
             return sqlQuery.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            Logger.getLogger(PacienteGestion.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(OdontologoGestion.class.getName()).log(Level.SEVERE, null, e);
         }
 
         return false;

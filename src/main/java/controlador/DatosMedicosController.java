@@ -89,7 +89,7 @@ public class DatosMedicosController extends DatosMedicos implements Serializable
         }
 
     }
-
+    //TODO: Este método se puede ir, pero ocupa revisión antes de cambio final
     /*******************************************************************************
      * 
      * 
