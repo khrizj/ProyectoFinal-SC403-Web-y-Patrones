@@ -22,7 +22,11 @@
                     <b:navBar brand="DentalPro" brandHref="/index.xhtml" inverse="true" fixed="top" fluid="true">
                         <b:navbarLinks pull="left">
                             <b:image library="images" name="DentalPro.png" height="60px"/>
-                            <b:navLink value="Reporte citas" href="#"></b:navLink>
+                            <b:commandButton value="Reporte de Citas" 
+                                look="primary"  
+                                iconAlign="right"
+                                action="#{reportePacientesController.createReport()}"
+                            />
                         </b:navbarLinks>
                         <b:navbarLinks pull="right">
                             <b:navLink value="Salir" href="#{request.contextPath}/index.xhtml"></b:navLink>

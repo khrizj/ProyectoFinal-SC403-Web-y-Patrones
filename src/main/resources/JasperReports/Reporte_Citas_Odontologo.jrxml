@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Citas_Odontologo" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f36b1e49-cc24-4519-8308-e8bbe7add230">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT clinicaodontologica.cita.`fechaCita`,
+	clinicaodontologica.cita.`motivoCita`,
+	clinicaodontologica.evolucion.descripcion,
+	clinicaodontologica.datosmedicos.alergia,
+	clinicaodontologica.datosmedicos.`alergiaDetalle`,
+	clinicaodontologica.datosmedicos.`medicamentosConsumidos`
+FROM clinicaodontologica.cita
+JOIN clinicaodontologica.evolucion ON clinicaodontologica.evolucion.`cedulaPaciente` = clinicaodontologica.cita.`cedulaPaciente`
+JOIN clinicaodontologica.datosmedicos ON clinicaodontologica.datosmedicos.`cedulaPaciente` = clinicaodontologica.cita.`cedulaPaciente` ]]>
+	</queryString>
+	<field name="fechaCita" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="fechaCita"/>
+		<property name="com.jaspersoft.studio.field.label" value="fechaCita"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cita"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="motivoCita" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="motivoCita"/>
+		<property name="com.jaspersoft.studio.field.label" value="motivoCita"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cita"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="descripcion"/>
+		<property name="com.jaspersoft.studio.field.label" value="descripcion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="evolucion"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alergia" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="alergia"/>
+		<property name="com.jaspersoft.studio.field.label" value="alergia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="datosmedicos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alergiaDetalle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="alergiaDetalle"/>
+		<property name="com.jaspersoft.studio.field.label" value="alergiaDetalle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="datosmedicos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="medicamentosConsumidos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="medicamentosConsumidos"/>
+		<property name="com.jaspersoft.studio.field.label" value="medicamentosConsumidos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="datosmedicos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="716a6c33-edcf-447b-8db0-d25b108f726a"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="67d003b2-14a4-4a2c-b016-610305b75142"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TITLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="4b3f0193-519c-4359-a6a9-6db7f3c884cc"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Add a description here]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="3f12f53e-159c-4f30-a4a1-ebbf79321f5f"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="55a10db8-6ea9-4cb5-aec2-ca3c3ff587dd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0663f7e1-1bbb-416d-a1a3-5c6dec558907"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fechaCita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="92" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="fef1e46a-15fd-4554-84d7-91b8b9d59c25">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a896f32-91f6-4558-a5d0-ae0b7a330594"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[motivoCita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="184" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="94b3a330-8b4c-49e5-a9f6-91dabd68dae7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bd04540d-65f3-4b29-94e6-6ec91f3602a4"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="bd49b027-f1cd-4dc2-a598-06d5542f8e7b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fbec0c60-048c-4c55-9053-74782eff0d15"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[alergia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="368" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="68ba8cba-fab4-4a27-ba85-9d966666152f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed890e18-3cae-4af2-8887-d3c31c467af7"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[alergiaDetalle]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="460" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aafd7fc3-6fea-414b-8727-c458357c6dce">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f5578e25-8391-4a31-a7fa-f0c917e7ae17"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[medicamentosConsumidos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="190ceeda-31fc-4d90-a54c-c9d9f65fb6d9"/>
+			</line>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="92" height="20" uuid="3ce50db6-71b9-484d-bb82-19aaf38129b6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0663f7e1-1bbb-416d-a1a3-5c6dec558907"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaCita}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="92" y="0" width="92" height="20" uuid="b5769d4e-1f1d-4aec-bfa5-8c058a995bed">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5a896f32-91f6-4558-a5d0-ae0b7a330594"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motivoCita}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="184" y="0" width="92" height="20" uuid="7c5f82ee-8f8f-4f41-9993-0b4a2d96ad90">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bd04540d-65f3-4b29-94e6-6ec91f3602a4"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="276" y="0" width="92" height="20" uuid="234cb69e-3548-4230-a3a7-ca36a55e9d3c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fbec0c60-048c-4c55-9053-74782eff0d15"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alergia}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="368" y="0" width="92" height="20" uuid="6ff9100e-27ca-4922-b4c7-c1f03143083f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed890e18-3cae-4af2-8887-d3c31c467af7"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alergiaDetalle}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="460" y="0" width="92" height="20" uuid="1782cc66-1089-4f1d-a195-537cac468212">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f5578e25-8391-4a31-a7fa-f0c917e7ae17"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medicamentosConsumidos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="a47c9995-e8f2-4b98-932e-827d2b3c318b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="f99d0aff-65d9-4826-b842-c27ba6b7e4e8"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="62d5573c-f917-4eb6-ab85-add91c09ccc5"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
