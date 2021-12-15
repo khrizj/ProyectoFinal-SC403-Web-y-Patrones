@@ -53,12 +53,12 @@ public class CitaController extends Cita implements Serializable {
     public String citaElimina() {
 
         if (CitaGestion.citaDelete(this)) {
-            return "/Doctores/Odontologos.xhtml";
+            return "/Pacientes/pacientes.xhtml";
         } else {
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "Posible que el id no exista");
             FacesContext.getCurrentInstance().addMessage("editaPacienteForm:identificacion", mensaje);
-            return "/Doctores/Odontologos.xhtml";
+            return "/Pacientes/pacientes.xhtml";
         }
 
     }
@@ -82,4 +82,6 @@ public class CitaController extends Cita implements Serializable {
         }
 
     }
+    
+    
 }
