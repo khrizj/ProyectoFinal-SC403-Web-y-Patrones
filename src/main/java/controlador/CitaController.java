@@ -24,6 +24,7 @@ import modelo.Cita;
 public class CitaController extends Cita implements Serializable {
 
     public CitaController() {
+        
     }
 
    
