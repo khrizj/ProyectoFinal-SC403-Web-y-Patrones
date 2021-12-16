@@ -3,10 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <!--  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="default.css"/>
         <h:outputStylesheet library="css" name="cssLayout.css"/>
         <h:outputStylesheet library="css" name="sweetalert.css"/>
@@ -17,18 +18,18 @@
 
         <script>
             function mensaje() {
-                swal("Gracias", "su cita ha sido agendada", "success")
+                swal("Gracias", "su cita ha sido agendada", "success");
             }
-        </script>
-        <title>Dental Pro</title>
+        </script> -->
+        <title>Portal Pacientes</title>
     </h:head>
+    
     <h:body>
-        <ui:composition template="./../resources/plantillas/plantillaPaciente.xhtml">
+        <ui:composition template="/resources/plantillas/plantillaPaciente.xhtml">
             <ui:define name="content">
+                
                 <h:form id="insertaCita">
                     <b:panel style="margin-top: 3%" title="Insertar cita" look="primary">
-
-
                         <b:row>
                             <b:column medium-screen="2">
                                 <h:outputLabel value="Cédula del paciente" for="id"/>
@@ -73,7 +74,7 @@
 
                         <b:row>
                             <b:column medium-screen="2"/>
-                            <b:column medium-screen="6">
+                           <b:column medium-screen="6">
                                 <b:commandButton value="Insertar"
                                                  action="#{citaController.inserta()}"
                                                 
@@ -90,7 +91,7 @@
                                                  action="#{citaController.citaElimina()}"
                                                  look="primary"
                                                  style="width: 33%"/>     
-                            </b:column> 
+                            </b:column>
                         </b:row>     
                     </b:panel>
                 </h:form>  

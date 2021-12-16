@@ -8,8 +8,8 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="../resources/css/default.css"/>
-        <h:outputStylesheet name="../resources/css/cssLayout.css"/>
+        <h:outputStylesheet name="./../css/default.css"/>
+        <h:outputStylesheet name="./../css/cssLayout.css"/>
         <title>Pacientes Plantilla</title>
     </h:head>
 
@@ -22,11 +22,7 @@
                     <b:navBar brand="DentalPro" brandHref="/index.xhtml" inverse="true" fixed="top" fluid="true">
                         <b:navbarLinks pull="left">
                             <b:image library="images" name="DentalPro.png" height="60px"/>
-                            <b:commandButton value="Reporte de Citas" 
-                                look="primary"  
-                                iconAlign="right"
-                                action="#{reportePacientesController.createReport()}"
-                            />
+                            <b:navLink value="Reporte citas" href="#{reportePacientesController.createReport()}"></b:navLink>
                         </b:navbarLinks>
                         <b:navbarLinks pull="right">
                             <b:navLink value="Salir" href="#{request.contextPath}/index.xhtml"></b:navLink>
@@ -37,6 +33,7 @@
 
             </ui:insert>
         </div>
+
 
         <div id="content" class="center_content" fluid="true">
             <ui:insert name="content"></ui:insert>
