@@ -1,1 +1,167 @@
-<!--TBD-->
+
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <h:outputStylesheet library="css" name="sweetalert.css"/>
+        <h:outputStylesheet library="js" name="sweetalert.min.js"/>
+        <link href="css/sweetalert.css" rel="stylesheet" type="text/css"/>
+
+        <script src="/resources/js/sweetalert.min.js" type="text/javascript"/>
+
+        <script>
+            function mensaje() {
+                swal("Gracias", "sus datos han sido ingresados", "success")
+            }
+        </script>
+        <title>Dental Pro</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./../resources/plantillas/plantillaPaciente.xhtml">
+            <ui:define name="content">
+                <h:form id="insertaHistorialDental">
+                    <b:panel style="margin-top: 3%" title="Insertar historial dental" look="primary">
+                         <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Ultima visita al dentista" for="visita"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText id="visita"
+                                             required="true"
+                                             value="#{historialDentalController.ultimaVisitaDentista}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="visita"/>
+                            </b:column>  
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Numero de cepillados al dia" for="cepillados"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText id="cepillados"
+                                             required="true"
+                                             value="#{historialDentalController.numeroCepilladosDia}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="cepillados"/>
+                            </b:column>  
+                        </b:row>
+                        
+                        <b:row>
+                            <b:column span="2">
+                                <h:outputText value="¿Utiliza hilo dental?:" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{historialDentalController.usoHilo}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="2">
+                                <h:outputText value="¿Utiliza enjuague dental?:" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{historialDentalController.usoEnjuague}"/>
+                            </b:column>
+                        </b:row>
+                       
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Tipo de pasta dental" for="pasta"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText id="pasta"
+                                             required="true"
+                                             value="#{historialDentalController.tipoPastaDental}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="pasta"/>
+                            </b:column>  
+                        </b:row>
+                         <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Numero de comidas al dia" for="comidas"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText id="comidas"
+                                             required="true"
+                                             value="#{historialDentalController.numeroComidasDia}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="comidas"/>
+                            </b:column>  
+                        </b:row>
+                        <b:row>
+                            <b:column span="2">
+                                <h:outputText value="Dieta muy cariogenica" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{historialDentalController.dietaMuyCariogenica}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="2">
+                                <h:outputText value="Dieta poco cariogenica" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{historialDentalController.dietaPocoCariogenica}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="2">
+                                <h:outputText value="Dieta nada cariogenica" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{historialDentalController.dietaNadaCariogenica}"/>
+                            </b:column>
+                        </b:row>
+                         <b:row>
+                            <b:column span="2">
+                                <h:outputText value="Toma mucha agua" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{historialDentalController.masAgua}"/>
+                            </b:column>
+                        </b:row>
+                         <b:row>
+                            <b:column span="2">
+                                <h:outputText value="Toma poca agua" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{historialDentalController.igualAgua}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column span="2">
+                                <h:outputText value="Toma nada de agua" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:selectBooleanCheckbox value="#{historialDentalController.menosAgua}"/>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2">
+                                <h:outputLabel value="Cédula del paciente" for="cedula"/>
+                            </b:column>
+                            <b:column medium-screen="4">
+                                <b:inputText id="cedula"
+                                             required="true"
+                                             value="#{historialDentalController.cedulaPaciente}"/>
+                            </b:column>
+                            <b:column medium-screen="6" style-class="message">
+                                <b:message for="cedula"/>
+                            </b:column>  
+                        </b:row>
+                        </b:panel>
+                    </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

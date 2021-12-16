@@ -6,7 +6,7 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Parafuncionales</title>
+        <title>Habitos para funcionales</title>
     </h:head>
     <h:body>
 
@@ -15,8 +15,75 @@
             <ui:define name="content">
             </ui:define>
 
-            CONTENT
-
+            <b:row>
+                <b:column span="2">
+                    <h:outputText value="Come uñas?" />
+                </b:column>
+                <b:column span="2">
+                    <b:selectBooleanCheckbox value="#{habitosParafuncionalesController.comeUnnas}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="2">
+                    <h:outputText value="Tiene bruxismo?" />
+                </b:column>
+                <b:column span="2">
+                    <b:selectBooleanCheckbox value="#{habitosParafuncionalesController.bruxismo}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="2">
+                    <h:outputText value="Usted ronca?" />
+                </b:column>
+                <b:column span="2">
+                    <b:selectBooleanCheckbox value="#{habitosParafuncionalesController.ronca}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="2">
+                    <h:outputText value="Usted durme con la boca abierta?" />
+                </b:column>
+                <b:column span="2">
+                    <b:selectBooleanCheckbox value="#{habitosParafuncionalesController.dormirBocaAbierta}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="2">
+                    <h:outputText value="Usted chupa dedo?" />
+                </b:column>
+                <b:column span="2">
+                    <b:selectBooleanCheckbox value="#{habitosParafuncionalesController.chuparDedo}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="2">
+                    <h:outputText value="Usted tiene deglusion atípica?" />
+                </b:column>
+                <b:column span="2">
+                    <b:selectBooleanCheckbox value="#{habitosParafuncionalesController.deglusionAtipica}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column span="2">
+                    <h:outputText value="Usted muerde objetos?" />
+                </b:column>
+                <b:column span="2">
+                    <b:selectBooleanCheckbox value="#{habitosParafuncionalesController.morderObjetos}"/>
+                </b:column>
+            </b:row>
+            <b:row>
+                <b:column medium-screen="2">
+                    <h:outputLabel value="Cédula del paciente" for="cedula"/>
+                </b:column>
+                <b:column medium-screen="4">
+                    <b:inputText id="cedula"
+                                 required="true"
+                                 value="#{habitosParafuncionalesController.cedulaPaciente}"/>
+                </b:column>
+                <b:column medium-screen="6" style-class="message">
+                    <b:message for="cedula"/>
+                </b:column>  
+            </b:row>
         </ui:composition>
 
     </h:body>
