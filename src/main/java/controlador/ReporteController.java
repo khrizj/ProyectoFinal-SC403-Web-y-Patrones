@@ -23,16 +23,14 @@ import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 
-@Named(value = "reporteOdontologoController")
+@Named(value = "reporteController")
 @SessionScoped
-public class ReporteOdontologoController implements Serializable {
+public class ReporteController implements Serializable {
 
-    //Constructor
-    public ReporteOdontologoController() {
+    public ReporteController() {
     }
     
-    
-public void createReport(Paciente paciente){
+    public void createOdontologoReport(Paciente paciente){
         
         Map<String, Object> paramReport = new HashMap<>();
         String pacienteID = paciente.getCedulaPaciente();
@@ -52,7 +50,31 @@ public void createReport(Paciente paciente){
             JasperExportManager.exportReportToPdfStream(jPrinter, oStream);
             FacesContext.getCurrentInstance().responseComplete();
         } catch (JRException | IOException e) {
-            Logger.getLogger(ReporteOdontologoController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    
+    public void createPacienteReport(Paciente paciente){
+        
+        Map<String, Object> paramReport = new HashMap<>();
+        String pacienteID = paciente.getCedulaPaciente();
+        paramReport.put("cedulaPaciente", pacienteID);
+
+        try {
+            File jReportFile;
+            jReportFile = new File(FacesContext.getCurrentInstance().getExternalContext().getRealPath("./Doctores/Reporte_Citas_Paciente.jasper"));
+
+            JasperPrint jPrinter = JasperFillManager.fillReport(jReportFile.getPath(), paramReport, Conexion.getConexion());
+            HttpServletResponse hResponse = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+            
+            hResponse.setContentType("application/pdf");
+            hResponse.addHeader("Content-Type", "application/pdf");
+
+            ServletOutputStream oStream = hResponse.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(jPrinter, oStream);
+            FacesContext.getCurrentInstance().responseComplete();
+        } catch (JRException | IOException e) {
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
     
