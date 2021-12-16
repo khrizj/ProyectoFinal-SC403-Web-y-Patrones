@@ -10,7 +10,7 @@
 	clinicaodontologica.evolucion.descripcion
 FROM clinicaodontologica.cita
 JOIN clinicaodontologica.evolucion ON clinicaodontologica.evolucion.`cedulaPaciente` = clinicaodontologica.cita.`cedulaPaciente`
-WHERE  clinicaodontologica.cita.`cedulaPaciente`  =  $P{cedulaPaciente} ]]>
+WHERE  clinicaodontologica.cita.`cedulaPaciente`  =  $P{cedulaPaciente}]]>
 	</queryString>
 	<field name="fechaCita" class="java.sql.Date">
 		<property name="com.jaspersoft.studio.field.name" value="fechaCita"/>

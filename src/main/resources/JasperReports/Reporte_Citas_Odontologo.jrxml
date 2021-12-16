@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Citas_Odontologo" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f36b1e49-cc24-4519-8308-e8bbe7add230">
-	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[Y2xpbmljYW9kb250b2xvZ2ljYS5ldm9sdWNpb24gLDE1LDE1LDczMmE2OTc5LTM2NmItNDNlNC1h
+MTNlLTJmNDdkMDFmMDdiMztjbGluaWNhb2RvbnRvbG9naWNhLmRhdG9zbWVkaWNvcyAsMTUsMjM2
+LDU5ODhiODFkLTkwZWYtNDhiYy04YTJhLWQ0NTZlZDNmOTY2ZTtjbGluaWNhb2RvbnRvbG9naWNh
+LmNpdGEgLDI2OSwxNjQsM2FkMjkyMjctYTI1Mi00MWMwLTg1MjgtOTgyODEyNmI3ZThkOw==]]>
+	</property>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+	<parameter name="cedulaPaciente" class="java.lang.String"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT clinicaodontologica.cita.`fechaCita`,
 	clinicaodontologica.cita.`motivoCita`,
@@ -11,8 +17,12 @@
 	clinicaodontologica.datosmedicos.`alergiaDetalle`,
 	clinicaodontologica.datosmedicos.`medicamentosConsumidos`
 FROM clinicaodontologica.cita
-JOIN clinicaodontologica.evolucion ON clinicaodontologica.evolucion.`cedulaPaciente` = clinicaodontologica.cita.`cedulaPaciente`
-JOIN clinicaodontologica.datosmedicos ON clinicaodontologica.datosmedicos.`cedulaPaciente` = clinicaodontologica.cita.`cedulaPaciente` ]]>
+	JOIN clinicaodontologica.evolucion ON 
+	 clinicaodontologica.evolucion.`cedulaPaciente` = clinicaodontologica.cita.`cedulaPaciente` 
+	JOIN clinicaodontologica.datosmedicos ON 
+	 clinicaodontologica.datosmedicos.`cedulaPaciente` = clinicaodontologica.cita.`cedulaPaciente` 
+WHERE 
+	 clinicaodontologica.cita.`cedulaPaciente` = $P{cedulaPaciente}]]>
 	</queryString>
 	<field name="fechaCita" class="java.sql.Date">
 		<property name="com.jaspersoft.studio.field.name" value="fechaCita"/>
@@ -62,14 +72,7 @@ JOIN clinicaodontologica.datosmedicos ON clinicaodontologica.datosmedicos.`cedul
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
-				</staticText>
-				<staticText>
-					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="4b3f0193-519c-4359-a6a9-6db7f3c884cc"/>
-					<textElement textAlignment="Right">
-						<font size="14" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Add a description here]]></text>
+					<text><![CDATA[Reporte Citas]]></text>
 				</staticText>
 			</frame>
 		</band>
