@@ -30,10 +30,9 @@ public class ReporteController implements Serializable {
     public ReporteController() {
     }
     
-    public void createOdontologoReport(Paciente paciente){
+    public void createOdontologoReport(String pacienteID){
         
         Map<String, Object> paramReport = new HashMap<>();
-        String pacienteID = paciente.getCedulaPaciente();
         paramReport.put("cedulaPaciente", pacienteID);
 
         try {
@@ -54,10 +53,9 @@ public class ReporteController implements Serializable {
         }
     }
     
-    public void createPacienteReport(Paciente paciente){
+    public void createPacienteReport(String pacienteID){
         
         Map<String, Object> paramReport = new HashMap<>();
-        String pacienteID = paciente.getCedulaPaciente();
         paramReport.put("cedulaPaciente", pacienteID);
 
         try {
