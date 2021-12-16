@@ -118,4 +118,39 @@ public class PacienteController extends Paciente implements Serializable {
         return PacienteGestion.getPacientes();
     }
 
+    private boolean noImprimir = true; // Para habilitar o deshabilitar el botón que imprime la certificación
+
+    public boolean isNoImprimir() {
+        return noImprimir;
+    }
+
+    public void setNoImprimir(boolean noImprimir) {
+        this.noImprimir = noImprimir;
+    }
+
+    public void buscaPaciente(String id) {
+
+        Paciente paciente = PacienteGestion.getPaciente(id);
+
+        if (paciente != null) {
+            this.setCedulaPaciente(paciente.getCedulaPaciente());
+            this.setNombre(paciente.getNombre());
+            this.setApellido1(paciente.getApellido1());
+            this.setApellido2(paciente.getApellido2());
+            this.noImprimir = false;
+        } else {
+
+            this.setCedulaPaciente("");
+            this.setNombre("");
+            this.setApellido1("");
+            this.setApellido2("");
+            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_WARN, "No Encontrado",
+                    "Paciente no Encontrado");
+            FacesContext.getCurrentInstance().addMessage("reporteCitaForm:identificacion", mensaje);
+            this.noImprimir = true;
+
+        }
+
+    }
+
 }

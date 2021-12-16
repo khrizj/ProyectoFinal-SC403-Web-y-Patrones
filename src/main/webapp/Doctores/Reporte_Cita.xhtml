@@ -6,7 +6,7 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Odontologos</title>
+        <title>Reporte de Citas</title>
     </h:head>
     <h:body>
 
@@ -14,21 +14,50 @@
             <ui:define name="content">
 
                 <h:form id="reporteCitaForm">
-                    <b:container style="margin-top: 3%">
-                        <b:row>
-                            <b:column span="4">
-                                <h:outputText value="Cédula del paciente:" />
-                            </b:column>
-                            <b:column span="6">
-                                <b:inputText value="#{pacienteController.cedulaPaciente}" required="true"/>
-                            </b:column>
-                        </b:row>
-                        <b:commandButton value="Crear reporte" 
-                                         ajax="true" 
-                                         process="@form" 
-                                         update="@form"
-                                         action="#{reporteOdontologoController.createReporte(pacienteController)}"
-                                         look="primary" />
+                    <b:container fluid="true">
+                        <b:panel style="margin-top: 3%" title="Busqueda Citas" look="primary">
+                            <b:row>
+                                <b:column medium-screen="1">
+                                    <h:outputLabel value="Identificación" for="identifacion"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="999999999"
+                                                 required="true"
+                                                 id="identificacion"
+                                                 value="#{pacienteController.cedulaPaciente}"/>
+                                </b:column>
+                                <b:column mediumScreen="1">
+                                    <b:commandButton value="Buscar"
+                                                     icon="search"
+                                                     look="success"
+                                                     onclick="ajax:pacienteController.buscaPaciente(pacienteController.cedulaPaciente)"
+                                                     update="@form"/>
+                                                     
+                                </b:column>
+                                <b:column medium-screen="4" style-class="message">
+                                    <b:message for="identificacion"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="1">
+                                    <h:outputLabel value="Nombre" for="nombre"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <h:outputLabel value="#{pacienteController.nombreCompleto}"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="1"/>
+                                <b:column medium-screen="4"/>
+                                <b:commandButton id="btImprimir"
+                                                 value="Imprimir"
+                                                 look="primary"
+                                                 disabled="#{pacienteController.noImprimir}"
+                                                 action="#{reporteController.createOdontologoReport(pacienteController)}"
+                                                 icon="print"/>
+                                
+                            </b:row>
+                        </b:panel>
                     </b:container>
                 </h:form>
             </ui:define>
