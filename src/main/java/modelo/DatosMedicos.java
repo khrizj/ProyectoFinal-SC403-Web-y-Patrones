@@ -1,6 +1,7 @@
 package modelo;
 
 public class DatosMedicos {
+
     //Attributes
     private int idDatosMedicos;
     private String antecedentesPatologicosPersonales;
@@ -12,7 +13,6 @@ public class DatosMedicos {
     private String cedulaPaciente;
 
     //Constructors
-
     public DatosMedicos() {
     }
 
@@ -36,8 +36,6 @@ public class DatosMedicos {
         this.medicamentosConsumidos = medicamentosConsumidos;
         this.cedulaPaciente = cedulaPaciente;
     }
-    
-    
 
     //Getter and Setters
     public int getIdDatosMedicos() {

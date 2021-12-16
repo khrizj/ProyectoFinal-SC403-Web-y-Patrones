@@ -29,7 +29,11 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(boolean nacional, String cedulaPaciente, String nombre, String apellido1, String apellido2, String username, String pass, Date fechaNacimiento, int edad, boolean sexo, String direccion, String telefono1, String email, String nombreEncargado, String apellidoEncargado1, String apellidoEncargado2, boolean activo, String cedulaOdontologo) {
+    public Paciente(boolean nacional, String cedulaPaciente, String nombre, String apellido1, 
+            String apellido2, String username, String pass, Date fechaNacimiento, 
+            int edad, boolean sexo, String direccion, String telefono1, String email, 
+            String nombreEncargado, String apellidoEncargado1, String apellidoEncargado2, 
+            boolean activo, String cedulaOdontologo) {
         this.nacional = nacional;
         this.cedulaPaciente = cedulaPaciente;
         this.nombre = nombre;

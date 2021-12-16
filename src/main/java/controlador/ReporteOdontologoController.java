@@ -28,6 +28,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 public class ReporteOdontologoController implements Serializable{
     private static final String ODONTREPORTPATH = "./Doctores/Reporte_Citas_Odontologo.jasper";
 
+    public ReporteOdontologoController() {
+    }
+
     public void createReport(Paciente paciente){
         Map<String, Object> paramReport = new HashMap<>();
         String pacienteID = paciente.getCedulaPaciente();

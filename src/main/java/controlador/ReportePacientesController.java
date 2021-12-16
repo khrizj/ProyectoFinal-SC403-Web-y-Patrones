@@ -3,17 +3,16 @@ package controlador;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
-
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-
 import modelo.Conexion;
 import modelo.Paciente;
 
@@ -27,15 +26,16 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 @Named(value = "reportePacientesController")
 @SessionScoped
-public class ReportePacientesController extends Paciente implements Serializable{
-    private static final String PACIENTEREPORTPATH = "./Pacientes/Reporte_Citas_Paciente.jasper";
+public class ReportePacientesController implements Serializable{
 
-    public ReportePacientesController(){
+    public ReportePacientesController() {
     }
+
+    private final String PACIENTEREPORTPATH = "./Pacientes/Reporte_Citas_Paciente.jasper";
 
     public void createReport(){
         Map<String, Object> paramReport = new HashMap<>();
-        String pacienteID = this.getCedulaPaciente();
+        String pacienteID = ;
         paramReport.put("cedulaPaciente", pacienteID);
 
         try {

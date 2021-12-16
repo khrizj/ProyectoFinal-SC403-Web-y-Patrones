@@ -72,7 +72,9 @@
                     <b:row>
                         <b:column medium-screen="1">
                             <b:form>
-                                <b:selectBooleanCheckbox required="false" value="#{pacienteController.nacional}" caption="Extrangero"/>
+                                <b:switch on-text="Extranjero" off-text="Nacional" value="#{pacienteController.nacional}"
+                                          update="@form" onchange="ajax:buttonGroupsBean.onChange()"
+                                          label="Nacionalidad" />
                             </b:form>
                         </b:column>
 
@@ -90,7 +92,9 @@
 
                         <b:column medium-screen="1">
                             <b:form>
-                                <b:selectBooleanCheckbox label="Sexo" required="false" value="#{pacienteController.sexo}" caption="Mujer"/>
+                                <b:switch on-text="Mujer" off-text="Hombre" value="#{pacienteController.sexo}"
+                                          update="@form" onchange="ajax:buttonGroupsBean.onChange()"
+                                          label="Sexo" />
                             </b:form>
                         </b:column>
 
