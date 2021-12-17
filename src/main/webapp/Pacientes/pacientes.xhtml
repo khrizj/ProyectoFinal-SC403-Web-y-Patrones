@@ -57,25 +57,27 @@
                                 <b:message for="fecha"/>
                             </b:column>        
                         </b:row>
-
                         <b:row>
-                            <b:column medium-screen="2"/>
+                            <b:column medium-screen="2">
+                                <br></br>
+                            </b:column>
+                        </b:row>
+                        <b:row>
+                            <b:column medium-screen="2"></b:column>
                             <b:column medium-screen="6">
                                 <b:commandButton value="Insertar"
                                                  action="#{citaController.inserta()}"
-
                                                  look="primary"
                                                  style="width: 33%"/>     
 
                                 <b:commandButton value="Modificar"
                                                  action="#{citaController.citaModifica()}"
-
-                                                 look="primary"
+                                                 look="warning"
                                                  style="width: 33%"/>     
 
                                 <b:commandButton value="Eliminar"
                                                  action="#{citaController.citaElimina()}"
-                                                 look="primary"
+                                                 look="danger"
                                                  style="width: 33%"/>     
                             </b:column>
                         </b:row>

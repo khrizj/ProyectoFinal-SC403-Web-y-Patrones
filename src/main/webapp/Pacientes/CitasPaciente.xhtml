@@ -18,28 +18,6 @@
                         <b:panel style="margin-top: 3%" title="Busqueda Citas" look="primary">
                             <b:row>
                                 <b:column medium-screen="1">
-                                    <h:outputLabel value="Identificación" for="identifacion"/>
-                                </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="999999999"
-                                                 required="true"
-                                                 id="identificacion"
-                                                 value="#{pacienteController.cedulaPaciente}"/>
-                                </b:column>
-                                <b:column mediumScreen="1">
-                                    <b:commandButton value="Buscar"
-                                                     icon="search"
-                                                     look="success"
-                                                     onclick="ajax:pacienteController.buscaPaciente(pacienteController.cedulaPaciente)"
-                                                     update="@form"/>
-
-                                </b:column>
-                                <b:column medium-screen="4" style-class="message">
-                                    <b:message for="identificacion"/>
-                                </b:column>
-                            </b:row>
-                            <b:row>
-                                <b:column medium-screen="1">
                                     <h:outputLabel value="Nombre" for="nombre"/>
                                 </b:column>
                                 <b:column medium-screen="4">
@@ -53,10 +31,8 @@
                                 </b:column>
                                 <b:column medium-screen="3">
                                     <b:commandButton value="Ver PDF"
-                                                     disabled="#{pacienteController.noImprimir}"
                                                      action="#{reporteController.citasVerPdf(pacienteController)}"/>
                                     <b:commandButton value="Descargar PDF"
-                                                     disabled="#{pacienteController.noImprimir}"
                                                      action="#{reporteController.citasDescargarPdf(pacienteController)}" 
                                                      icon="save"/>
                                 </b:column>

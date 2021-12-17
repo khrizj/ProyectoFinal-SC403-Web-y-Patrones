@@ -37,7 +37,7 @@ public class ReporteController implements Serializable {
 
         try {
             File jasper = new File(FacesContext.getCurrentInstance().getExternalContext()
-                    .getRealPath("/Pacientes/PacienteCitas.jasper"));
+                    .getRealPath("/Pacientes/MisCitas.jasper"));
 
             JasperPrint reporteJasper = JasperFillManager.fillReport(jasper.getPath(), parametro, Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
@@ -51,7 +51,6 @@ public class ReporteController implements Serializable {
         } catch (JRException | IOException ex) {
             Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public void citasDescargarPdf(Paciente paciente) {
@@ -61,7 +60,7 @@ public class ReporteController implements Serializable {
 
         try {
             File jasper = new File(FacesContext.getCurrentInstance().getExternalContext()
-                    .getRealPath("/Pacientes/PacienteCitas.jasper"));
+                    .getRealPath("/Pacientes/MisCitas.jasper"));
 
             JasperPrint reporteJasper = JasperFillManager.fillReport(jasper.getPath(), parametro, Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
@@ -86,7 +85,7 @@ public class ReporteController implements Serializable {
 
         try {
             File jasper = new File(FacesContext.getCurrentInstance().getExternalContext()
-                    .getRealPath("/Doctores/Cita_x_Paciente.jasper"));
+                    .getRealPath("/Doctores/DetalleCitaPaciente.jasper"));
 
             JasperPrint reporteJasper = JasperFillManager.fillReport(jasper.getPath(), parametro, Conexion.getConexion());
             HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
