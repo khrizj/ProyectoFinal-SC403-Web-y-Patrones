@@ -6,34 +6,43 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Reporte de Citas</title>
+        <tile>Citas Paciente</tile>  
     </h:head>
+
     <h:body>
 
-        <ui:composition template="/resources/plantillas/plantillaPaciente.xhtml">
+        <ui:composition template="./../resources/plantillas/plantillaPaciente.xhtml">
             <ui:define name="content">
-                
-                <b:form>
+                <h:form id="reportePacienteCitaForm">
                     <b:container fluid="true">
-                        <b:panel title="Reportes" look="primary">
+                        <b:panel style="margin-top: 3%" title="Busqueda Citas" look="primary">
+                            <b:row>
+                                <b:column medium-screen="1">
+                                    <h:outputLabel value="Identificación" for="identifacion"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText value="#{pacienteController.cedulaPaciente}" disabled="true"/>
+                                </b:column>
+                            </b:row>
+
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Reporte en PDF" for="pdf"/>
                                 </b:column>
                                 <b:column medium-screen="3">
                                     <b:commandButton value="Ver PDF"
-                                                     action="#{reporteController.citasVerPdf(pacienteController)}"/>
+
+                                                     action="#{reporteController.citasVerPdf(pacienteController.cedulaPaciente)}"/>
                                     <b:commandButton value="Descargar PDF"
+
                                                      action="#{reporteController.citasDescargarPdf(pacienteController)}"/>
                                 </b:column>
                             </b:row>
 
                         </b:panel>
                     </b:container>
-                </b:form>
-
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
 </html>
-
