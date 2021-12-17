@@ -4,7 +4,12 @@ import modelo.HistoriaDental;
 import gestion.HistorialDentalGestion;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -27,7 +32,7 @@ public class HistorialDentalController extends HistoriaDental implements Seriali
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                                  "Error","Posible duplicación de historial");
             FacesContext.getCurrentInstance().addMessage("", message);
-            return "";
+            return "/Doctores/Odontologos.xhtml";
         }
     }
 
@@ -73,7 +78,7 @@ public class HistorialDentalController extends HistoriaDental implements Seriali
             this.setIgualAgua(histObj.isIgualAgua());
             this.setMenosAgua(histObj.isMenosAgua());
             this.setCedulaPaciente(histObj.getCedulaPaciente());
-            return "";
+            return "/Doctores/Odontlogos.xhtml";
         }else{
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                                     "Error","Historial inexistente");
@@ -82,13 +87,6 @@ public class HistorialDentalController extends HistoriaDental implements Seriali
         }
     }
 
-    //Select all
-    public List<HistoriaDental> getHistoriales(){
-        return HistorialDentalGestion.getAllHistorial();
-    }
-
-    //Select historial
-    public HistoriaDental getHistorial(String cedulaID){
-        return HistorialDentalGestion.getHistorial(cedulaID);
-    }
+    
+    
 }

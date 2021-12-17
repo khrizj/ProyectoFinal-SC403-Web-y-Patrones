@@ -157,7 +157,26 @@
                                     <b:message for="cedula"/>
                                 </b:column>  
                             </b:row>
+                            <b:row>
+                                <b:column medium-screen="2"><br></br></b:column>
+                                <b:column medium-screen="6">
+                                    <b:commandButton value="Insertar"
+                                                     action="#{historialDentalController.historialDentInsert()}"
+                                                     look="primary"
+                                                     style="width: 33%"/>     
 
+                                    <b:commandButton value="Modificar"
+
+                                                     action="#{historialDentalController.historialDentUpdate()}"
+                                                     look="warning"
+                                                     style="width: 33%"/>     
+
+                                    <b:commandButton value="Eliminar"
+                                                     action="#{historialDentalController.historialDentDelete()}"
+                                                     look="danger"
+                                                     style="width: 33%"/>     
+                                </b:column>
+                            </b:row>
                         </b:panel>
                     </b:container>
                 </h:form>
@@ -235,10 +254,26 @@
                                     <b:message for="cedula"/>
                                 </b:column>  
                             </b:row>
+                            <b:row>
+                                <b:column medium-screen="2"><br></br></b:column>
+                                <b:column medium-screen="6">
+                                    <b:commandButton value="Insertar"
+                                                     action="#{habitosParafuncionalesController.habitosParafInsert()}"
+                                                     look="primary"
+                                                     style="width: 33%"/>     
 
+                                    <b:commandButton value="Modificar"
 
+                                                     action="#{habitosParafuncionalesController.habitosParafUpdate()}"
+                                                     look="warning"
+                                                     style="width: 33%"/>     
 
-
+                                    <b:commandButton value="Eliminar"
+                                                     action="#{habitosParafuncionalesController.habitosParafDelete()}"
+                                                     look="danger"
+                                                     style="width: 33%"/>     
+                                </b:column>
+                            </b:row>
                         </b:panel>
                     </b:container>
                 </h:form>
@@ -305,13 +340,26 @@
                                     <b:inputText value="#{DatosMedicosController.medicamentosConsumidos}" required="true"/>
                                 </b:column>
                             </b:row>
-                            <b:commandButton value="Guardar" 
-                                             ajax="true" 
-                                             process="@form" 
-                                             update="@form"
-                                             action="#{DatosMedicosController.datosMedToSave()}"
-                                             icon="save" 
-                                             look="primary" />
+                            <b:row>
+                                <b:column medium-screen="2"><br></br></b:column>
+                                <b:column medium-screen="6">
+                                    <b:commandButton value="Insertar"
+                                                     action="#{datosMedicosController.datosMedInserta()}"
+                                                     look="primary"
+                                                     style="width: 33%"/>     
+
+                                    <b:commandButton value="Modificar"
+
+                                                     action="#{datosMedicosController.datosMedModifica()}"
+                                                     look="warning"
+                                                     style="width: 33%"/>     
+
+                                    <b:commandButton value="Eliminar"
+                                                     action="#{datosMedicosController.datosMedElimina()}"
+                                                     look="danger"
+                                                     style="width: 33%"/>     
+                                </b:column>
+                            </b:row>
 
                         </b:panel>
                     </b:container>
@@ -323,13 +371,12 @@
                     <b:container fluid="true">
                         <b:panel title="Evolucion" look="primary" collapsed="false" style-class="centrado">
 
-
                             <b:row>
                                 <b:column span="4">
                                     <h:outputText value="Cédula del paciente:" />
                                 </b:column>
                                 <b:column span="6">
-                                    <b:inputText value="#{EvolucionController.cedulaPaciente}" required="true"/>
+                                    <b:inputText value="#{evolucionController.cedulaPaciente}" required="true"/>
                                 </b:column>
                             </b:row>
                             <b:row>
@@ -364,13 +411,26 @@
                                     <b:selectBooleanCheckbox value="#{EvolucionController.satisfechoConDentadura}"/>
                                 </b:column>
                             </b:row>
-                            <b:commandButton value="Guardar" 
-                                             ajax="true" 
-                                             process="@form" 
-                                             update="@form"
-                                             action="#{DatosMedicosController.evoToSave()}"
-                                             icon="save" 
-                                             look="primary" />
+                            <b:row>
+                                <b:column medium-screen="2"></b:column>
+                                <b:column medium-screen="6">
+                                    <b:commandButton value="Insertar"
+                                                     action="#{evolucionController.evolucionInserta()}"
+                                                     look="primary"
+                                                     style="width: 33%"/>     
+
+                                    <b:commandButton value="Modificar"
+
+                                                     action="#{evolucionController.evolucionModifica()}"
+                                                     look="warning"
+                                                     style="width: 33%"/>     
+
+                                    <b:commandButton value="Eliminar"
+                                                     action="#{evolucionController.evolucionElimina()}"
+                                                     look="danger"
+                                                     style="width: 33%"/>     
+                                </b:column>
+                            </b:row>
 
                         </b:panel>
                     </b:container>

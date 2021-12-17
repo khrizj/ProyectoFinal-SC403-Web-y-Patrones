@@ -33,20 +33,10 @@ public class CitaController extends Cita implements Serializable {
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "Posible Identificación Duplicada");
             FacesContext.getCurrentInstance().addMessage("manejoCitaForm:identificacion", mensaje);
-            return "pacientes.xhtml";
+            return "Pacientes/pacientes.xhtml";
         }
     }
-    
-    public String id_Cita(){
-        if(CitaGestion.getIdCita(this)>0){
-        return "/Pacientes/pacientes.xhtml";
-        }else{
-                    FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "Error", "Posible Identificación Duplicada");
-            FacesContext.getCurrentInstance().addMessage("manejoCitaForm:identificacion", mensaje);
-            return "pacientes.xhtml";
-        }
-    } 
+   
 
     public String citaModifica() {
 
@@ -74,26 +64,5 @@ public class CitaController extends Cita implements Serializable {
         }
 
     }
-
-    public String citaEdita(String cedulaPaciente) {
-
-        Cita cita = CitaGestion.getCita(cedulaPaciente);
-
-        if (cita != null) {
-
-            this.setMotivoCita(cita.getMotivoCita());
-            this.setFechaCita(cita.getFechaCita());
-            this.setCedulaPaciente(cita.getCedulaPaciente());
-            return "/Pacientes/pacientes.xhtml";
-        } else {
-
-            FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "Error", "Posiblemente el id no exista");
-            FacesContext.getCurrentInstance().addMessage("manejoCitaForm:identificacion", mensaje);
-            return "/Pacientes/pacientes.xhtml";
-        }
-
-    }
-    
     
 }
