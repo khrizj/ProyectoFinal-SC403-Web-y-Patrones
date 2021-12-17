@@ -50,7 +50,7 @@
                                 <b:column medium-screen="1"/>
                                 <b:column medium-screen="4"/>
                                 <b:commandButton id="btImprimir"
-                                                 value="Imprimir"
+                                                 disabled="#{pacienteController.noImprimir}"
                                                  look="primary"
                                                  disabled="#{pacienteController.noImprimir}"
                                                  action="#{reporteController.createOdontologoReport(pacienteController)}"

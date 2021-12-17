@@ -21,7 +21,29 @@
                                     <h:outputLabel value="Identificación" for="identifacion"/>
                                 </b:column>
                                 <b:column medium-screen="2">
-                                    <b:inputText value="#{pacienteController.cedulaPaciente}" disabled="true"/>
+                                    <b:inputText placeholder="999999999"
+                                                 required="true"
+                                                 id="identificacion"
+                                                 value="#{pacienteController.cedulaPaciente}"/>
+                                </b:column>
+                                <b:column mediumScreen="1">
+                                    <b:commandButton value="Buscar"
+                                                     icon="search"
+                                                     look="success"
+                                                     onclick="ajax:pacienteController.buscaPaciente(pacienteController.cedulaPaciente)"
+                                                     update="@form"/>
+
+                                </b:column>
+                                <b:column medium-screen="4" style-class="message">
+                                    <b:message for="identificacion"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="1">
+                                    <h:outputLabel value="Nombre" for="nombre"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <h:outputLabel value="#{pacienteController.nombreCompleto}"/>
                                 </b:column>
                             </b:row>
 
@@ -31,11 +53,13 @@
                                 </b:column>
                                 <b:column medium-screen="3">
                                     <b:commandButton value="Ver PDF"
-
-                                                     action="#{reporteController.citasVerPdf(pacienteController.cedulaPaciente)}"/>
+                                                     disabled="#{pacienteController.noImprimir}"
+                                                     action="#{reporteController.citasVerPdf(pacienteController.cedulaPaciente)}" 
+                                                     icon="look"/>
                                     <b:commandButton value="Descargar PDF"
-
-                                                     action="#{reporteController.citasDescargarPdf(pacienteController)}"/>
+                                                     disabled="#{pacienteController.noImprimir}"
+                                                     action="#{reporteController.citasDescargarPdf(pacienteController)}" 
+                                                     icon="save"/>
                                 </b:column>
                             </b:row>
 
