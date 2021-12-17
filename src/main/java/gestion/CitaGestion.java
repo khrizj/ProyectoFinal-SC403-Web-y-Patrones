@@ -18,9 +18,8 @@ public class CitaGestion {
     private static final String CITA_SQL_SELECT = "SELECT * FROM cita WHERE idCita = ?";
     private static final String CITA_SQL_SELECT_ALL = "SELECT * FROM cita";
     private static final String CITA_SQL_INSERT = "INSERT INTO cita (motivoCita, fechaCita, cedulaPaciente) VALUES (?, ? ,?)";
-    private static final String CITA_SQL_UPDATE = "UPDATE cita SET nombre = ?, motivoCita = ?,"+
-                                             "fechaCita = ?, cedulaPaciente = ?";
-    private static final String CITA_SQL_DELETE = "DELETE FROM cita WHERE idCita = ?";
+    private static final String CITA_SQL_UPDATE = "UPDATE cita SET nombre = ?, motivoCita = ? fechaCita = ? cedulaPaciente = ? WHERE cedulaPaciente = ?";
+    private static final String CITA_SQL_DELETE = "DELETE FROM cita WHERE cedulaPaciente = ?";
 
     //Executions
     //SQL_SELECT exec

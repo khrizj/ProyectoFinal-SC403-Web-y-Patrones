@@ -119,9 +119,7 @@ public class Paciente {
     }
 
     public Date getFechaNacimiento() {
-        
-        //java.sql.Date sqlDate = new java.sql.Date(this.fechaNacimiento.getTime());
-
+        //Casting to sql.date
          this.fechaNacimiento = new Date();
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -135,7 +133,7 @@ public class Paciente {
     }
 
     public void setFechaNacimiento(Date fechaNacimiento) {
-        
+        //Casting to sql.date
         fechaNacimiento = new Date();
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
