@@ -14,13 +14,14 @@
         <ui:composition template="./../resources/plantillas/plantillaPaciente.xhtml">
             <ui:define name="content">
 
-                <h:form id="insertaCita">
+                <h:form id="manejoCitaForm">
                     <b:panel style="margin-top: 3%" title="Insertar cita" look="primary">
                         <b:row>
                             <b:column medium-screen="2">
                                 <h:outputLabel value="Cédula del paciente" for="id"/>
                             </b:column>
                             <b:column medium-screen="4">
+                                <b:message for="identificacion"/>
                                 <b:inputText id="id"
                                              required="true"
                                              value="#{citaController.cedulaPaciente}"/>
@@ -49,9 +50,9 @@
                                 <h:outputLabel value="Fecha de cita" for="fecha"/>
                             </b:column>
                             <b:column medium-screen="4">
-                                <b:dateTimePicker format="YYYY-MM-DD HH:mm:ss" id="fecha"
+                                <b:dateTimePicker format="YYYY-MM-DD" id="fecha"
                                                   required="true"
-                                                  value="#{citaController.fechaCita}"/>
+                                                  value="#{citaController.fechaCita}"/><!--HH:mm:ss-->
                             </b:column>
                             <b:column medium-screen="6" style-class="message">
                                 <b:message for="fecha"/>
@@ -71,6 +72,7 @@
                                                  style="width: 33%"/>     
 
                                 <b:commandButton value="Modificar"
+                                                 
                                                  action="#{citaController.citaModifica()}"
                                                  look="warning"
                                                  style="width: 33%"/>     

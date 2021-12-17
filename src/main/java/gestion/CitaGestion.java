@@ -15,11 +15,12 @@ import modelo.Conexion;
  */
 public class CitaGestion {
         //CRUD elements
-    private static final String CITA_SQL_SELECT = "SELECT * FROM cita WHERE idCita = ?";
+    private static final String CITA_SQL_SELECT = "SELECT * FROM cita WHERE cedulaPaciente = ?";
     private static final String CITA_SQL_SELECT_ALL = "SELECT * FROM cita";
     private static final String CITA_SQL_INSERT = "INSERT INTO cita (motivoCita, fechaCita, cedulaPaciente) VALUES (?, ? ,?)";
-    private static final String CITA_SQL_UPDATE = "UPDATE cita SET nombre = ?, motivoCita = ? fechaCita = ? cedulaPaciente = ? WHERE cedulaPaciente = ?";
+    private static final String CITA_SQL_UPDATE = "UPDATE cita SET motivoCita =?, fechaCita =?  WHERE cedulapaciente = ?";
     private static final String CITA_SQL_DELETE = "DELETE FROM cita WHERE cedulaPaciente = ?";
+    private static final String ULTIMA_CITA_SQL_DELETE = "SELECT MAX(idCita) FROM cita WHERE (SELECT MAX(idCita) FROM cita WHERE cedulaPaciente = ?)";
 
     //Executions
     //SQL_SELECT exec
@@ -42,6 +43,26 @@ public class CitaGestion {
         }
         return cita;
     }
+    
+        public static int getIdCita(Cita cita){
+    
+        int idCita = 0;
+
+        try {
+            PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(ULTIMA_CITA_SQL_DELETE);
+            sqlQuery.setInt(1,idCita);
+            ResultSet dataSet = sqlQuery.executeQuery();
+            
+            if(dataSet.next()){
+                idCita = dataSet.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(AdministradorGestion.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return idCita;
+    }
+    
     
     //SQL_SELECT_ALL exec
     public static ArrayList<Cita> getCitas(){
@@ -83,11 +104,15 @@ public class CitaGestion {
     
     //SQL_UPDATE Exec
     public static boolean citaUpdate(Cita cita){
+        
+        
         try {
             PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(CITA_SQL_UPDATE);
-            sqlQuery.setString(1, cita.getMotivoCita());
-            sqlQuery.setObject(2, cita.getFechaCita());
-            sqlQuery.setString(3, cita.getCedulaPaciente());
+            
+            sqlQuery.setObject(1,cita.getCedulaPaciente());
+            sqlQuery.setString(2, cita.getMotivoCita());
+            sqlQuery.setObject(3, cita.getFechaCita());
+            
 
             return sqlQuery.executeUpdate() > 0;
 
