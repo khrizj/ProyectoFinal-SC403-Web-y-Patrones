@@ -54,8 +54,7 @@
                                 <b:column medium-screen="3">
                                     <b:commandButton value="Ver PDF"
                                                      disabled="#{pacienteController.noImprimir}"
-                                                     action="#{reporteController.citasVerPdf(pacienteController.cedulaPaciente)}" 
-                                                     icon="look"/>
+                                                     action="#{reporteController.citasVerPdf(pacienteController)}"/>
                                     <b:commandButton value="Descargar PDF"
                                                      disabled="#{pacienteController.noImprimir}"
                                                      action="#{reporteController.citasDescargarPdf(pacienteController)}" 
