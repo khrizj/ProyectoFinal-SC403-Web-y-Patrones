@@ -79,7 +79,6 @@ public class HistorialDentalGestion {
             try{
                 PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(SQL_DELETE);
                 sqlQuery.setString(1, historial.getCedulaPaciente());
-                sqlQuery.setInt(2, historial.getIdHistoriaDental());
 
                 return sqlQuery.executeUpdate() > 0;
             }catch (SQLException e){
