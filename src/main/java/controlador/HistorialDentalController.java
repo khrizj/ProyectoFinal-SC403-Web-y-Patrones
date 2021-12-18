@@ -21,7 +21,6 @@ import javax.inject.Named;
 public class HistorialDentalController extends HistoriaDental implements Serializable {
     //Constructor
     public HistorialDentalController(){
-        super("", 0, false, false, "", 0, false, false, false, false, false, false, "");
     }
 
     //Insert
@@ -31,7 +30,7 @@ public class HistorialDentalController extends HistoriaDental implements Seriali
         }else{
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                                  "Error","Posible duplicación de historial");
-            FacesContext.getCurrentInstance().addMessage("", message);
+            FacesContext.getCurrentInstance().addMessage("historiaDentalForm:visita", message);
             return "Odontologos.xhtml";
         }
     }

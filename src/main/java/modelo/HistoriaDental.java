@@ -21,6 +21,9 @@ public class HistoriaDental {
   private boolean menosAgua;
   private String cedulaPaciente;
 
+    public HistoriaDental() {
+    }
+
     public HistoriaDental(String ultimaVisitaDentista, int numeroCepilladosDia, boolean usoHilo, boolean usoEnjuague, String tipoPastaDental, int numeroComidasDia, boolean dietaMuyCariogenica, boolean dietaPocoCariogenica, boolean dietaNadaCariogenica, boolean masAgua, boolean igualAgua, boolean menosAgua, String cedulaPaciente) {
         this.ultimaVisitaDentista = ultimaVisitaDentista;
         this.numeroCepilladosDia = numeroCepilladosDia;

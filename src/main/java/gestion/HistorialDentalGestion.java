@@ -12,10 +12,7 @@ import modelo.Conexion;
 
 public class HistorialDentalGestion {
     //CRUD elements
-    private static final String SQL_INSERT = "INSERT INTO historiaDental (ultimaVisitaDentista, numeroCepilladosDia, usoHilo, usoEnjuague,\n" +
-"                                            tipoPastaDental, numeroComidasDia, dietaMuyCariogenica, dietaPocoCariogenica,\n" +
-"                                            dietaNadaCariogenica, masAgua, igualAgua, menosAgua, cedulaPaciente) \n" +
-"                                            VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO historiaDental (ultimaVisitaDentista, numeroCepilladosDia, usoHilo, usoEnjuague,tipoPastaDental, numeroComidasDia, dietaMuyCariogenica, dietaPocoCariogenica,dietaNadaCariogenica, masAgua, igualAgua, menosAgua, cedulaPaciente) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE historialDental"+ 
                                             "SET ultimaVisitaDentista = ?, numeroCepilladosDia = ?, usoHilo = ?,"+
                                             "usoEnjuague = ?, tipoPastaDental = ?, numeroComidasDia = ?, dietaMuyCariogenica = ?,"+

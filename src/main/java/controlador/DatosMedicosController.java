@@ -20,6 +20,7 @@ public class DatosMedicosController extends DatosMedicos implements Serializable
     public DatosMedicosController() {
     }
     
+    //Insert
      public String datosMedInserta() {
 
         if (DatosMedicosGestion.datosInsert(this)) {
