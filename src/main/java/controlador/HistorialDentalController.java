@@ -59,34 +59,5 @@ public class HistorialDentalController extends HistoriaDental implements Seriali
             return "";
         }
     }
-
-    //Edit
-    public String historialEdit(String cedulaId){
-        HistoriaDental histObj = HistorialDentalGestion.getHistorial(cedulaId);
-
-        if(histObj != null){
-            this.setUltimaVisitaDentista(histObj.getUltimaVisitaDentista());
-            this.setNumeroCepilladosDia(histObj.getNumeroCepilladosDia());
-            this.setUsoHilo(histObj.isUsoHilo());
-            this.setUsoEnjuague(histObj.isUsoEnjuague());
-            this.setTipoPastaDental(histObj.getTipoPastaDental());
-            this.setNumeroComidasDia(histObj.getNumeroComidasDia());
-            this.setDietaMuyCariogenica(histObj.isDietaMuyCariogenica());
-            this.setDietaPocoCariogenica(histObj.isDietaPocoCariogenica());
-            this.setDietaNadaCariogenica(histObj.isDietaNadaCariogenica());
-            this.setMasAgua(histObj.isMasAgua());
-            this.setIgualAgua(histObj.isIgualAgua());
-            this.setMenosAgua(histObj.isMenosAgua());
-            this.setCedulaPaciente(histObj.getCedulaPaciente());
-            return "/Doctores/Odontlogos.xhtml";
-        }else{
-            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                                    "Error","Historial inexistente");
-            FacesContext.getCurrentInstance().addMessage("", message);
-            return "";
-        }
-    }
-
-    
     
 }
