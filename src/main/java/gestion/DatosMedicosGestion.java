@@ -12,15 +12,12 @@ import modelo.Conexion;
 public class DatosMedicosGestion {
     //CRUD elements
 
-    private static final String SQL_INSERT = "INSERT INTO datosMedicos (antecedentesPatologicosPersonales,"
-                                            +"antecendentesPatologicosFamiliares, antecedentesQuirugicos,"
-                                            +"alergia, alergiaDetalle, medicamentosConsumidos, cedulaPaciente)"
-                                            +"VALUES (?, ?, ?, ?, ?, ?, ?,)";
-    private static final String SQL_UPDATE = "UPDATE Paciente SET antecedentesPatologicosPersonales = ?,"
+    private static final String SQL_INSERT = "INSERT INTO datosMedicos (antecedentesPatologicosPersonales,antecedentesPatologicosFamiliares, antecedentesQuirurgicos,alergia, alergiaDetalle, medicamentosConsumidos, cedulaPaciente) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE datosMedicos SET antecedentesPatologicosPersonales = ?,"
                                             +"antecendentesPatologicosFamiliares = ?, antecedentesQuirugicos  = ?,"
                                             +"alergia  = ?, alergiaDetalle = ?, medicamentosConsumidos = ?" 
                                             +"WHERE cedulaPaciente = ?";
-    private static final String SQL_DELETE = "DELETE FROM paciente WHERE cedulaPaciente = ?";
+    private static final String SQL_DELETE = "DELETE FROM datosMedicos WHERE cedulaPaciente = ?";
 
     //SQL_INSERT Exec
     public static boolean datosInsert(DatosMedicos datos){
@@ -32,7 +29,6 @@ public class DatosMedicosGestion {
             sqlQuery.setBoolean(4, datos.isAlergia());
             sqlQuery.setString(5, datos.getAlergiaDetalle());
             sqlQuery.setString(6, datos.getMedicamentosConsumidos());
-            
             sqlQuery.setString(7, datos.getCedulaPaciente());
 
             return sqlQuery.executeUpdate() > 0;

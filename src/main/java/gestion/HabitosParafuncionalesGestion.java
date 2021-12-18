@@ -16,14 +16,12 @@ import modelo.Conexion;
 public class HabitosParafuncionalesGestion {
     
      //CRUD elements
-    private static final String HABITOSP_SQL_SELECT = "SELECT * FROM HabitosParafuncionales WHERE cedulaPaciente = ?";
-    private static final String HABITOSP_SQL_SELECT_ALL = "SELECT * FROM HabitosParafuncionales";
-    private static final String HABITOSP_SQL_INSERT = "INSERT INTO HabitosParafuncionales (comeUnnas, bruxismo, ronca, dormirBocaAbierta,"+
+    private static final String HABITOSP_SQL_INSERT = "INSERT INTO habitosParafuncionales (comeUnnas, bruxismo, ronca, dormirBocaAbierta,"+
                                              "chuparDedo, deglusionAtipica, morderObjetos, cedulaPaciente) VALUES (?, ? ,?, ? ,?, ?, ?, ?)";
-    private static final String HABITOSP_SQL_UPDATE = "UPDATE HabitosParafuncionales SET comeUnnas = ?, bruxismo = ?,"+
+    private static final String HABITOSP_SQL_UPDATE = "UPDATE habitosParafuncionales SET comeUnnas = ?, bruxismo = ?,"+
                                              "ronca = ?, dormirBocaAbierta = ?, chuparDedo = ?, deglusionAtipica = ?, morderObjetos = ?,"+
                                              "cedulaPaciente =  ? WHERE cedulaPaciente = ?";
-    private static final String HABITOSP_SQL_DELETE = "DELETE FROM HabitosParafuncionales WHERE cedulaPaciente = ?";
+    private static final String HABITOSP_SQL_DELETE = "DELETE FROM habitosParafuncionales WHERE cedulaPaciente = ?";
 
     //Executions
     //SQL_SELECT exec
@@ -32,7 +30,7 @@ public class HabitosParafuncionalesGestion {
         HabitosParafuncionales habitoP = null;
 
         try {
-            PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(HABITOSP_SQL_SELECT);
+            PreparedStatement sqlQuery = Conexion.getConexion().prepareCall(HABITOSP_SQL_INSERT);
             sqlQuery.setString(1, cedulaPaciente);
             ResultSet dataSet = sqlQuery.executeQuery();
 
@@ -58,7 +56,7 @@ public class HabitosParafuncionalesGestion {
         ArrayList<HabitosParafuncionales> habitosPList = new ArrayList<>();
 
         try {
-            PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(HABITOSP_SQL_SELECT_ALL);
+            PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(HABITOSP_SQL_UPDATE);
             ResultSet dataSet = sqlQuery.executeQuery();
 
             while(dataSet != null && dataSet.next()){
