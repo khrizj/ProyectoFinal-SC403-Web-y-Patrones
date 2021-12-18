@@ -289,23 +289,25 @@
                                     <h:outputText value="Cédula del paciente:" />
                                 </b:column>
                                 <b:column span="6">
-                                    <b:inputText value="#{datosMedicosController.cedulaPaciente}" required="true"/>
+                                    <b:inputText 
+                                        value="#{datosMedicosController.cedulaPaciente}" 
+                                        required="true"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column span="4">
-                                    <h:outputText value="Antecedentes Personales:" />
+                                    <h:outputText value="Antecedentes Patologicos Personales:" />
                                 </b:column>
                                 <b:column span="6">
-                                    <b:inputText value="#{datosMedicosController.antecedentesPatologicosPersonales}" required="true" />
+                                    <b:inputText value="#{datosMedicosController.antecedentesPatologicosPersonales}" required="true"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column span="4">
-                                    <h:outputText value="Antecedentes Familiares:" />
+                                    <h:outputText value="Antecedentes Patologicos Familiares:" />
                                 </b:column>
                                 <b:column span="6">
-                                    <b:inputText value="#{datosMedicosController.antecedentesPatologicosFamiliares}" required="true"/>
+                                    <b:selectBooleanCheckbox value="#{datosMedicosController.antecedentesPatologicosFamiliares}"/>
                                 </b:column>
                             </b:row>
                             <b:row>
@@ -318,7 +320,7 @@
                             </b:row>
                             <b:row>
                                 <b:column span="2">
-                                    <h:outputText value="¿Alergias?:" />
+                                    <h:outputText value="Alergias:" />
                                 </b:column>
                                 <b:column span="2">
                                     <b:selectBooleanCheckbox value="#{datosMedicosController.alergia}"/>
@@ -326,22 +328,22 @@
                             </b:row>
                             <b:row>
                                 <b:column span="4">
-                                    <h:outputText value="Detalle sobre alergias:" />
+                                    <h:outputText value="AlergiaDetalle:" />
                                 </b:column>
                                 <b:column span="6">
-                                    <b:inputText value="#{datosMedicosController.alergiaDetalle}"/>
+                                    <b:inputText value="#{datosMedicosController.alergiaDetalle}" required="true"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column span="4">
-                                    <h:outputText value="Medicamentos consumidos:" />
+                                    <h:outputText value="Medicamentos Consumidos:" />
                                 </b:column>
                                 <b:column span="6">
                                     <b:inputText value="#{datosMedicosController.medicamentosConsumidos}" required="true"/>
                                 </b:column>
                             </b:row>
                             <b:row>
-                                <b:column medium-screen="2"><br></br></b:column>
+                                <b:column medium-screen="2"></b:column>
                                 <b:column medium-screen="6">
                                     <b:commandButton value="Insertar"
                                                      action="#{datosMedicosController.datosMedInserta()}"
@@ -357,7 +359,7 @@
                                     <b:commandButton value="Eliminar"
                                                      action="#{datosMedicosController.datosMedElimina()}"
                                                      look="danger"
-                                                     style="width: 33%"/>     
+                                                     style="width: 33%"/>
                                 </b:column>
                             </b:row>
 
