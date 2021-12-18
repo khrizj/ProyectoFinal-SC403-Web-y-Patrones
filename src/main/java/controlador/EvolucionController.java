@@ -23,18 +23,17 @@ import modelo.Evolucion;
 public class EvolucionController extends Evolucion implements Serializable {
     //Constructor
     public EvolucionController() {
-        super("", false, "", false, "");
     }
     
     public String evolucionInserta() {
 
         if (EvolucionGestion.evolucionInsert(this)) {
-            return "/Doctores/Odontologos.xthml";
+            return "Odontologos.xthml";
         } else {
             FacesMessage mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Error", "Posible Identificación Duplicada");
             FacesContext.getCurrentInstance().addMessage("evolucionForm:identificacion", mensaje);
-            return "/Doctores/Odontologos.xthml";
+            return "Odontologos.xthml";
         }
     }
    

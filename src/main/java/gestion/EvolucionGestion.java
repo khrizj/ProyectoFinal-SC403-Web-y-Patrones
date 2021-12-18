@@ -25,7 +25,7 @@ public class EvolucionGestion {
       //SQL_INSERT Exec
     public static boolean evolucionInsert(Evolucion evolucion){
         try {
-            PreparedStatement sqlQuery = Conexion.getConexion().prepareStatement(EVOLUCION_SQL_INSERT);
+            PreparedStatement sqlQuery = Conexion.getConexion().prepareCall(EVOLUCION_SQL_INSERT);
             sqlQuery.setString(1, evolucion.getMotivoConsulta());
             sqlQuery.setBoolean(2, evolucion.isPresenciaDolor());
             sqlQuery.setString(3, evolucion.getDescripcion());
