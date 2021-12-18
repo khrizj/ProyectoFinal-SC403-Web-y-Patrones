@@ -25,7 +25,6 @@
                 <h:form id="historiaDentalForm">
                     <b:container fluid="true">
                         <b:panel title="Historia Dental" look="primary" collapsed="false" style-class="centrado">
-
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Ultima visita al dentista" for="visita"/>
@@ -149,12 +148,12 @@
                                     <h:outputLabel value="Cédula del paciente" for="cedula"/>
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <b:inputText id="cedula"
+                                    <b:inputText id="ID"
                                                  required="true"
                                                  value="#{historialDentalController.cedulaPaciente}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="cedula"/>
+                                    <b:message for="ID"/>
                                 </b:column>  
                             </b:row>
                             <b:row>

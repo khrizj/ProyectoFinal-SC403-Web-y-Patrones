@@ -27,36 +27,36 @@ public class HistorialDentalController extends HistoriaDental implements Seriali
     //Insert
     public String historialDentInsert(){
         if(HistorialDentalGestion.historialDentalInsert(this)){
-            return "";
+            return "Odontologos.xhtml";
         }else{
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                                  "Error","Posible duplicación de historial");
             FacesContext.getCurrentInstance().addMessage("", message);
-            return "/Doctores/Odontologos.xhtml";
+            return "Odontologos.xhtml";
         }
     }
 
     //Update
     public String historialDentUpdate(){
         if(HistorialDentalGestion.historialDentalUpdate(this)){
-            return "";
+            return "Odontologos.xhtml";
         }else{
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                                     "Error","Posible duplicación de historial");
             FacesContext.getCurrentInstance().addMessage("", message);
-            return "";
+            return "Odontologos.xhtml";
         }
     }
 
     //Delete
     public String historialDentDelete(){
         if(HistorialDentalGestion.historialDentalDelete(this)){
-            return "";
+            return "Odontologos.xhtml";
         }else{
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                                     "Error","Historial inexistente");
             FacesContext.getCurrentInstance().addMessage("", message);
-            return "";
+            return "Odontologos.xhtml";
         }
     }
     
